@@ -1,0 +1,70 @@
+
+	#Programa ejemplo
+
+	.data 0X00A0000F
+oro:	.word 15, 24
+	.text
+	la S100, oro
+	lw s1, 0(s0)
+	lw s1, 4(s0)
+	add s3, s1, s2
+	.end
+
+#			.data 0x100000AA
+#vector:	.word 10, 20 , 30
+#suma:		.space
+#			.text
+#main: 		la $0, vector 
+#			lw $2, 4($0)
+#
+#			lw $1, 8($0)
+#			add $2, $1, $2
+#			sw $2, 12($0)
+#			.end
+
+
+
+#
+# Comentario
+#
+#		.data 0x100000AA
+#vector:	.word 10, 20 , 30
+#suma:	.space
+#		.text	
+# Aqui empieza el programa
+#		main: la $0, vector 
+#		lw $2, 4($0) 
+# Y aqui sigue el comentario
+#		addi $2, $1, 6
+#		lw $1, 8($0)
+#		add $2, $1, $2
+#		sw $2, 12($0)
+#		.end
+#Y aquí acabo
+
+
+
+
+#
+# Comentario
+#
+#		.data 0x100g00AA
+#vector:	.word 10, 20 , 30
+#suma:   .space
+#		.text	
+# Aqui empieza el programa
+#main: 	la $0, vector 
+#		lw $2, 4($0)
+#		addi $2, $1, 2
+#		lw $1, 8($0)
+#		add $2, $1, $2
+#		sw $2, 12($0)
+#		.end
+#Y aquí acabo
+
+
+
+
+
+
+

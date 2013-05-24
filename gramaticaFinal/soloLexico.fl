@@ -1,0 +1,85 @@
+%{
+//#include "y.tab.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+%}
+%%
+\n+                         {printf("FL\n ");}
+r0|R0                       {printf("REGISTRO ");}
+r1|R1                       {printf("REGISTRO ");}
+r2|R2                       {printf("REGISTRO ");}
+r3|R3                       {printf("REGISTRO ");}
+r4|R4                       {printf("REGISTRO ");}
+r5|R5                       {printf("REGISTRO ");}
+r6|R6                       {printf("REGISTRO ");}
+r7|R7                       {printf("REGISTRO ");}
+r8|R8                       {printf("REGISTRO ");}
+r9|R9                       {printf("REGISTRO ");}
+r10|R10                     {printf("REGISTRO ");}
+r11|R11                     {printf("REGISTRO ");}
+r12|R12                     {printf("REGISTRO ");}
+r13|R13                     {printf("REGISTRO ");}
+r14|R14                     {printf("REGISTRO ");}
+r15|R15                     {printf("REGISTRO ");}
+r16|R16                     {printf("REGISTRO ");}
+r17|R17                     {printf("REGISTRO ");}
+r18|R18                     {printf("REGISTRO ");}
+r19|R19                     {printf("REGISTRO ");}
+r20|R20                     {printf("REGISTRO ");}
+r21|R21                     {printf("REGISTRO ");}
+r22|R22                     {printf("REGISTRO ");}
+r23|R23                     {printf("REGISTRO ");}
+r24|R24                     {printf("REGISTRO ");}
+r25|R15                     {printf("REGISTRO ");}
+r26|R26                     {printf("REGISTRO ");}
+r27|R27                     {printf("REGISTRO ");}
+r28|R28                     {printf("REGISTRO ");}
+r29|R29                     {printf("REGISTRO ");}
+r30|R30                     {printf("REGISTRO ");}
+r31|R31                     {printf("REGISTRO ");}
+global|GLOBAL               {printf("GLOBAL ");}
+data|DATA                   {printf("DATA ");}
+word|WORD                   {printf("WORD ");}
+equ|EQU                     {printf("EQU ");}
+bss|BSS                     {printf("BSS ");}
+space|SPACE                 {printf("SPACE ");}
+text|TEXT                   {printf("TEXT ");}
+end|END                     {printf("END ");}
+and|AND                     {printf("AND ");}
+orr|ORR                     {printf("ORR ");}
+EOR|eor                     {printf("EOR ");}
+ADD|add                     {printf("ADD ");}
+SUB|sub                     {printf("SUB ");}
+RSB|rsb                     {printf("RSB ");}
+MOV|mov                     {printf("MOV ");}
+CMP|cmp                     {printf("CMP ");}
+MUL|mul                     {printf("MUL ");}
+MLA|mla                     {printf("MLA ");}
+LDR|ldr                     {printf("LDR ");}
+STR|str                     {printf("STR ");}
+B|b                         {printf("B ");}
+BEQ|beq                     {printf("BEQ ");}
+BNE|bne                     {printf("BNE ");}
+BHI|bhi                     {printf("BHI ");}
+BLS|bls                     {printf("BLS ");}
+BGE|bge                     {printf("BGE ");}
+BLT|blt                     {printf("BLT ");}
+BGT|bgt                     {printf("BGT ");}
+BLE|ble                     {printf("BLE ");}
+0[Xx][0-9A-Fa-f]{2,8}       {printf("DIRHEXA ");}
+[0-9]+                      {printf("ENTERO ");}
+-[0-9]+                     {printf("ENTERONEGATIVO ");}
+[a-zA-Z][a-zA-Z0-9]*        {printf("ETIQUETA ");}
+:                           {printf("DP ");}
+\.                          {printf("PUNTO ");}
+=                           {printf("IGUAL ");}
+\[                          {printf("CA ");}
+\]                          {printf("CC ");}
+,                           {printf("COMA ");}
+\#                          {printf("ALMOADILLA ");}
+([ ]|\t)+                   ;
+\@.*                        ;
+.                           {printf("\nError lexico %s\n", yytext);}
+%%
+

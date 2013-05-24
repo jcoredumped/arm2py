@@ -1,0 +1,2775 @@
+shift/reduce conflict in state 6 resolved as shift.
+
+
+Unused terminals:
+
+
+Grammar
+
+Rule 1     s -> bd bi
+Rule 2     bd -> d sl bd
+Rule 3     bd -> e d sl bd
+Rule 4     bd -> e DTEXT sl
+Rule 5     bd -> DTEXT sl
+Rule 6     bd -> sl bd
+Rule 7     bi -> i sl bi
+Rule 8     bi -> e i sl bi
+Rule 9     bi -> end sl
+Rule 10    bi -> end
+Rule 11    bi -> sl bi
+Rule 12    e -> ETIQ DP
+Rule 13    d -> DWORD enteros
+Rule 14    d -> space
+Rule 15    d -> DDATA DIRHEX
+Rule 16    enteros -> ENTN COMA enteros
+Rule 17    enteros -> ENT COMA enteros
+Rule 18    enteros -> ENT
+Rule 19    enteros -> ENTN
+Rule 20    space -> DSPACE ENT
+Rule 21    space -> DSPACE
+Rule 22    sl -> SL sl
+Rule 23    sl -> SL
+Rule 24    i -> IADD REG COMA REG COMA REG
+Rule 25    i -> IADDI REG COMA REG COMA ENT
+Rule 26    i -> ISUB REG COMA REG COMA REG
+Rule 27    i -> IAND REG COMA REG COMA REG
+Rule 28    i -> IANDI REG COMA REG COMA ENT
+Rule 29    i -> IOR REG COMA REG COMA REG
+Rule 30    i -> IORI REG COMA REG COMA ENT
+Rule 31    i -> ISLL REG COMA REG COMA ENT
+Rule 32    i -> ILW REG COMA ENT PA REG PC
+Rule 33    i -> ISW REG COMA ENT PA REG PC
+Rule 34    i -> IBEQ REG COMA REG COMA ETIQ
+Rule 35    i -> IBNE REG COMA REG COMA ETIQ
+Rule 36    i -> IJ ETIQ
+Rule 37    i -> ILI REG COMA ENT
+Rule 38    i -> ILA REG COMA ETIQ
+Rule 39    i -> IBGE REG COMA REG COMA ETIQ
+Rule 40    i -> IBGEZ REG COMA ETIQ
+Rule 41    i -> IBGT REG COMA REG COMA ETIQ
+Rule 42    i -> IBGTZ REG COMA ETIQ
+Rule 43    i -> IBLE REG COMA REG COMA ETIQ
+Rule 44    i -> IBLEZ REG COMA ETIQ
+Rule 45    i -> IBLT REG COMA REG COMA ETIQ
+Rule 46    i -> IBLTZ REG COMA ETIQ
+Rule 47    i -> IADDI REG COMA REG COMA ENTN
+Rule 48    i -> IANDI REG COMA REG COMA ENTN
+Rule 49    i -> IORI REG COMA REG COMA ENTN
+Rule 50    i -> ILW REG COMA ENTN PA REG PC
+Rule 51    i -> ISW REG COMA ENTN PA REG PC
+Rule 52    i -> ILI REG COMA ENTN
+Rule 53    i -> ISLT REG COMA REG COMA REG
+Rule 54    i -> ISLTI REG COMA REG COMA ENT
+Rule 55    i -> ISEQ REG COMA REG COMA REG
+Rule 56    i -> ISGE REG COMA REG COMA REG
+Rule 57    i -> ISGT REG COMA REG COMA REG
+Rule 58    i -> ISLE REG COMA REG COMA REG
+Rule 59    i -> ISNE REG COMA REG COMA REG
+Rule 60    end -> DEND
+
+Terminals, with rules where they appear
+
+COMA                 : 16 17 24 24 25 25 26 26 27 27 28 28 29 29 30 30 31 31 32 33 34 34 35 35 37 38 39 39 40 41 41 42 43 43 44 45 45 46 47 47 48 48 49 49 50 51 52 53 53 54 54 55 55 56 56 57 57 58 58 59 59
+DDATA                : 15
+DEND                 : 60
+DIRHEX               : 15
+DP                   : 12
+DSPACE               : 20 21
+DTEXT                : 4 5
+DWORD                : 13
+ENT                  : 17 18 20 25 28 30 31 32 33 37 54
+ENTN                 : 16 19 47 48 49 50 51 52
+ETIQ                 : 12 34 35 36 38 39 40 41 42 43 44 45 46
+IADD                 : 24
+IADDI                : 25 47
+IAND                 : 27
+IANDI                : 28 48
+IBEQ                 : 34
+IBGE                 : 39
+IBGEZ                : 40
+IBGT                 : 41
+IBGTZ                : 42
+IBLE                 : 43
+IBLEZ                : 44
+IBLT                 : 45
+IBLTZ                : 46
+IBNE                 : 35
+IJ                   : 36
+ILA                  : 38
+ILI                  : 37 52
+ILW                  : 32 50
+IOR                  : 29
+IORI                 : 30 49
+ISEQ                 : 55
+ISGE                 : 56
+ISGT                 : 57
+ISLE                 : 58
+ISLL                 : 31
+ISLT                 : 53
+ISLTI                : 54
+ISNE                 : 59
+ISUB                 : 26
+ISW                  : 33 51
+PA                   : 32 33 50 51
+PC                   : 32 33 50 51
+REG                  : 24 24 24 25 25 26 26 26 27 27 27 28 28 29 29 29 30 30 31 31 32 32 33 33 34 34 35 35 37 38 39 39 40 41 41 42 43 43 44 45 45 46 47 47 48 48 49 49 50 50 51 51 52 53 53 53 54 54 55 55 55 56 56 56 57 57 57 58 58 58 59 59 59
+SL                   : 22 23
+error                : 
+
+Nonterminals, with rules where they appear
+
+bd                   : 1 2 3 6
+bi                   : 1 7 8 11
+d                    : 2 3
+e                    : 3 4 8
+end                  : 9 10
+enteros              : 13 16 17
+i                    : 7 8
+s                    : 0
+sl                   : 2 3 4 5 6 7 8 9 11 22
+space                : 14
+
+
+Parsing method: LALR
+
+
+state 0
+
+    (0) S' -> . s
+    (1) s -> . bd bi
+    (2) bd -> . d sl bd
+    (3) bd -> . e d sl bd
+    (4) bd -> . e DTEXT sl
+    (5) bd -> . DTEXT sl
+    (6) bd -> . sl bd
+    (13) d -> . DWORD enteros
+    (14) d -> . space
+    (15) d -> . DDATA DIRHEX
+    (12) e -> . ETIQ DP
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+    (20) space -> . DSPACE ENT
+    (21) space -> . DSPACE
+
+    DTEXT           shift and go to state 7
+    DWORD           shift and go to state 11
+    DDATA           shift and go to state 2
+    ETIQ            shift and go to state 12
+    SL              shift and go to state 6
+    DSPACE          shift and go to state 8
+
+
+    bd                             shift and go to state 1
+    e                              shift and go to state 3
+    d                              shift and go to state 4
+    space                          shift and go to state 5
+    s                              shift and go to state 9
+    sl                             shift and go to state 10
+
+state 1
+
+    (1) s -> bd . bi
+    (7) bi -> . i sl bi
+    (8) bi -> . e i sl bi
+    (9) bi -> . end sl
+    (10) bi -> . end
+    (11) bi -> . sl bi
+    (24) i -> . IADD REG COMA REG COMA REG
+    (25) i -> . IADDI REG COMA REG COMA ENT
+    (26) i -> . ISUB REG COMA REG COMA REG
+    (27) i -> . IAND REG COMA REG COMA REG
+    (28) i -> . IANDI REG COMA REG COMA ENT
+    (29) i -> . IOR REG COMA REG COMA REG
+    (30) i -> . IORI REG COMA REG COMA ENT
+    (31) i -> . ISLL REG COMA REG COMA ENT
+    (32) i -> . ILW REG COMA ENT PA REG PC
+    (33) i -> . ISW REG COMA ENT PA REG PC
+    (34) i -> . IBEQ REG COMA REG COMA ETIQ
+    (35) i -> . IBNE REG COMA REG COMA ETIQ
+    (36) i -> . IJ ETIQ
+    (37) i -> . ILI REG COMA ENT
+    (38) i -> . ILA REG COMA ETIQ
+    (39) i -> . IBGE REG COMA REG COMA ETIQ
+    (40) i -> . IBGEZ REG COMA ETIQ
+    (41) i -> . IBGT REG COMA REG COMA ETIQ
+    (42) i -> . IBGTZ REG COMA ETIQ
+    (43) i -> . IBLE REG COMA REG COMA ETIQ
+    (44) i -> . IBLEZ REG COMA ETIQ
+    (45) i -> . IBLT REG COMA REG COMA ETIQ
+    (46) i -> . IBLTZ REG COMA ETIQ
+    (47) i -> . IADDI REG COMA REG COMA ENTN
+    (48) i -> . IANDI REG COMA REG COMA ENTN
+    (49) i -> . IORI REG COMA REG COMA ENTN
+    (50) i -> . ILW REG COMA ENTN PA REG PC
+    (51) i -> . ISW REG COMA ENTN PA REG PC
+    (52) i -> . ILI REG COMA ENTN
+    (53) i -> . ISLT REG COMA REG COMA REG
+    (54) i -> . ISLTI REG COMA REG COMA ENT
+    (55) i -> . ISEQ REG COMA REG COMA REG
+    (56) i -> . ISGE REG COMA REG COMA REG
+    (57) i -> . ISGT REG COMA REG COMA REG
+    (58) i -> . ISLE REG COMA REG COMA REG
+    (59) i -> . ISNE REG COMA REG COMA REG
+    (12) e -> . ETIQ DP
+    (60) end -> . DEND
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    IADD            shift and go to state 25
+    IADDI           shift and go to state 15
+    ISUB            shift and go to state 26
+    IAND            shift and go to state 13
+    IANDI           shift and go to state 14
+    IOR             shift and go to state 28
+    IORI            shift and go to state 33
+    ISLL            shift and go to state 45
+    ILW             shift and go to state 22
+    ISW             shift and go to state 19
+    IBEQ            shift and go to state 48
+    IBNE            shift and go to state 20
+    IJ              shift and go to state 37
+    ILI             shift and go to state 21
+    ILA             shift and go to state 18
+    IBGE            shift and go to state 41
+    IBGEZ           shift and go to state 30
+    IBGT            shift and go to state 29
+    IBGTZ           shift and go to state 38
+    IBLE            shift and go to state 23
+    IBLEZ           shift and go to state 44
+    IBLT            shift and go to state 17
+    IBLTZ           shift and go to state 24
+    ISLT            shift and go to state 43
+    ISLTI           shift and go to state 34
+    ISEQ            shift and go to state 32
+    ISGE            shift and go to state 39
+    ISGT            shift and go to state 36
+    ISLE            shift and go to state 47
+    ISNE            shift and go to state 16
+    ETIQ            shift and go to state 12
+    DEND            shift and go to state 31
+    SL              shift and go to state 6
+
+
+    end                            shift and go to state 27
+    i                              shift and go to state 42
+    bi                             shift and go to state 35
+    sl                             shift and go to state 46
+    e                              shift and go to state 40
+
+state 2
+
+    (15) d -> DDATA . DIRHEX
+
+    DIRHEX          shift and go to state 49
+
+
+
+state 3
+
+    (3) bd -> e . d sl bd
+    (4) bd -> e . DTEXT sl
+    (13) d -> . DWORD enteros
+    (14) d -> . space
+    (15) d -> . DDATA DIRHEX
+    (20) space -> . DSPACE ENT
+    (21) space -> . DSPACE
+
+    DTEXT           shift and go to state 51
+    DWORD           shift and go to state 11
+    DDATA           shift and go to state 2
+    DSPACE          shift and go to state 8
+
+
+    d                              shift and go to state 50
+    space                          shift and go to state 5
+
+state 4
+
+    (2) bd -> d . sl bd
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    SL              shift and go to state 6
+
+
+    sl                             shift and go to state 52
+
+state 5
+
+    (14) d -> space .
+
+    SL              reduce using rule 14 (d -> space .)
+
+
+
+state 6
+
+    (22) sl -> SL . sl
+    (23) sl -> SL .
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+  ! shift/reduce conflict for SL resolved as shift.
+    IADD            reduce using rule 23 (sl -> SL .)
+    IADDI           reduce using rule 23 (sl -> SL .)
+    ISUB            reduce using rule 23 (sl -> SL .)
+    IAND            reduce using rule 23 (sl -> SL .)
+    IANDI           reduce using rule 23 (sl -> SL .)
+    IOR             reduce using rule 23 (sl -> SL .)
+    IORI            reduce using rule 23 (sl -> SL .)
+    ISLL            reduce using rule 23 (sl -> SL .)
+    ILW             reduce using rule 23 (sl -> SL .)
+    ISW             reduce using rule 23 (sl -> SL .)
+    IBEQ            reduce using rule 23 (sl -> SL .)
+    IBNE            reduce using rule 23 (sl -> SL .)
+    IJ              reduce using rule 23 (sl -> SL .)
+    ILI             reduce using rule 23 (sl -> SL .)
+    ILA             reduce using rule 23 (sl -> SL .)
+    IBGE            reduce using rule 23 (sl -> SL .)
+    IBGEZ           reduce using rule 23 (sl -> SL .)
+    IBGT            reduce using rule 23 (sl -> SL .)
+    IBGTZ           reduce using rule 23 (sl -> SL .)
+    IBLE            reduce using rule 23 (sl -> SL .)
+    IBLEZ           reduce using rule 23 (sl -> SL .)
+    IBLT            reduce using rule 23 (sl -> SL .)
+    IBLTZ           reduce using rule 23 (sl -> SL .)
+    ISLT            reduce using rule 23 (sl -> SL .)
+    ISLTI           reduce using rule 23 (sl -> SL .)
+    ISEQ            reduce using rule 23 (sl -> SL .)
+    ISGE            reduce using rule 23 (sl -> SL .)
+    ISGT            reduce using rule 23 (sl -> SL .)
+    ISLE            reduce using rule 23 (sl -> SL .)
+    ISNE            reduce using rule 23 (sl -> SL .)
+    ETIQ            reduce using rule 23 (sl -> SL .)
+    DEND            reduce using rule 23 (sl -> SL .)
+    DTEXT           reduce using rule 23 (sl -> SL .)
+    DWORD           reduce using rule 23 (sl -> SL .)
+    DDATA           reduce using rule 23 (sl -> SL .)
+    DSPACE          reduce using rule 23 (sl -> SL .)
+    $end            reduce using rule 23 (sl -> SL .)
+    SL              shift and go to state 6
+
+  ! SL              [ reduce using rule 23 (sl -> SL .) ]
+
+    sl                             shift and go to state 53
+
+state 7
+
+    (5) bd -> DTEXT . sl
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    SL              shift and go to state 6
+
+
+    sl                             shift and go to state 54
+
+state 8
+
+    (20) space -> DSPACE . ENT
+    (21) space -> DSPACE .
+
+    ENT             shift and go to state 55
+    SL              reduce using rule 21 (space -> DSPACE .)
+
+
+
+state 9
+
+    (0) S' -> s .
+
+
+
+
+state 10
+
+    (6) bd -> sl . bd
+    (2) bd -> . d sl bd
+    (3) bd -> . e d sl bd
+    (4) bd -> . e DTEXT sl
+    (5) bd -> . DTEXT sl
+    (6) bd -> . sl bd
+    (13) d -> . DWORD enteros
+    (14) d -> . space
+    (15) d -> . DDATA DIRHEX
+    (12) e -> . ETIQ DP
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+    (20) space -> . DSPACE ENT
+    (21) space -> . DSPACE
+
+    DTEXT           shift and go to state 7
+    DWORD           shift and go to state 11
+    DDATA           shift and go to state 2
+    ETIQ            shift and go to state 12
+    SL              shift and go to state 6
+    DSPACE          shift and go to state 8
+
+
+    bd                             shift and go to state 56
+    e                              shift and go to state 3
+    d                              shift and go to state 4
+    space                          shift and go to state 5
+    sl                             shift and go to state 10
+
+state 11
+
+    (13) d -> DWORD . enteros
+    (16) enteros -> . ENTN COMA enteros
+    (17) enteros -> . ENT COMA enteros
+    (18) enteros -> . ENT
+    (19) enteros -> . ENTN
+
+    ENTN            shift and go to state 57
+    ENT             shift and go to state 58
+
+
+    enteros                        shift and go to state 59
+
+state 12
+
+    (12) e -> ETIQ . DP
+
+    DP              shift and go to state 60
+
+
+
+state 13
+
+    (27) i -> IAND . REG COMA REG COMA REG
+
+    REG             shift and go to state 61
+
+
+
+state 14
+
+    (28) i -> IANDI . REG COMA REG COMA ENT
+    (48) i -> IANDI . REG COMA REG COMA ENTN
+
+    REG             shift and go to state 62
+
+
+
+state 15
+
+    (25) i -> IADDI . REG COMA REG COMA ENT
+    (47) i -> IADDI . REG COMA REG COMA ENTN
+
+    REG             shift and go to state 63
+
+
+
+state 16
+
+    (59) i -> ISNE . REG COMA REG COMA REG
+
+    REG             shift and go to state 64
+
+
+
+state 17
+
+    (45) i -> IBLT . REG COMA REG COMA ETIQ
+
+    REG             shift and go to state 65
+
+
+
+state 18
+
+    (38) i -> ILA . REG COMA ETIQ
+
+    REG             shift and go to state 66
+
+
+
+state 19
+
+    (33) i -> ISW . REG COMA ENT PA REG PC
+    (51) i -> ISW . REG COMA ENTN PA REG PC
+
+    REG             shift and go to state 67
+
+
+
+state 20
+
+    (35) i -> IBNE . REG COMA REG COMA ETIQ
+
+    REG             shift and go to state 68
+
+
+
+state 21
+
+    (37) i -> ILI . REG COMA ENT
+    (52) i -> ILI . REG COMA ENTN
+
+    REG             shift and go to state 69
+
+
+
+state 22
+
+    (32) i -> ILW . REG COMA ENT PA REG PC
+    (50) i -> ILW . REG COMA ENTN PA REG PC
+
+    REG             shift and go to state 70
+
+
+
+state 23
+
+    (43) i -> IBLE . REG COMA REG COMA ETIQ
+
+    REG             shift and go to state 71
+
+
+
+state 24
+
+    (46) i -> IBLTZ . REG COMA ETIQ
+
+    REG             shift and go to state 72
+
+
+
+state 25
+
+    (24) i -> IADD . REG COMA REG COMA REG
+
+    REG             shift and go to state 73
+
+
+
+state 26
+
+    (26) i -> ISUB . REG COMA REG COMA REG
+
+    REG             shift and go to state 74
+
+
+
+state 27
+
+    (9) bi -> end . sl
+    (10) bi -> end .
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    $end            reduce using rule 10 (bi -> end .)
+    SL              shift and go to state 6
+
+
+    sl                             shift and go to state 75
+
+state 28
+
+    (29) i -> IOR . REG COMA REG COMA REG
+
+    REG             shift and go to state 76
+
+
+
+state 29
+
+    (41) i -> IBGT . REG COMA REG COMA ETIQ
+
+    REG             shift and go to state 77
+
+
+
+state 30
+
+    (40) i -> IBGEZ . REG COMA ETIQ
+
+    REG             shift and go to state 78
+
+
+
+state 31
+
+    (60) end -> DEND .
+
+    SL              reduce using rule 60 (end -> DEND .)
+    $end            reduce using rule 60 (end -> DEND .)
+
+
+
+state 32
+
+    (55) i -> ISEQ . REG COMA REG COMA REG
+
+    REG             shift and go to state 79
+
+
+
+state 33
+
+    (30) i -> IORI . REG COMA REG COMA ENT
+    (49) i -> IORI . REG COMA REG COMA ENTN
+
+    REG             shift and go to state 80
+
+
+
+state 34
+
+    (54) i -> ISLTI . REG COMA REG COMA ENT
+
+    REG             shift and go to state 81
+
+
+
+state 35
+
+    (1) s -> bd bi .
+
+    $end            reduce using rule 1 (s -> bd bi .)
+
+
+
+state 36
+
+    (57) i -> ISGT . REG COMA REG COMA REG
+
+    REG             shift and go to state 82
+
+
+
+state 37
+
+    (36) i -> IJ . ETIQ
+
+    ETIQ            shift and go to state 83
+
+
+
+state 38
+
+    (42) i -> IBGTZ . REG COMA ETIQ
+
+    REG             shift and go to state 84
+
+
+
+state 39
+
+    (56) i -> ISGE . REG COMA REG COMA REG
+
+    REG             shift and go to state 85
+
+
+
+state 40
+
+    (8) bi -> e . i sl bi
+    (24) i -> . IADD REG COMA REG COMA REG
+    (25) i -> . IADDI REG COMA REG COMA ENT
+    (26) i -> . ISUB REG COMA REG COMA REG
+    (27) i -> . IAND REG COMA REG COMA REG
+    (28) i -> . IANDI REG COMA REG COMA ENT
+    (29) i -> . IOR REG COMA REG COMA REG
+    (30) i -> . IORI REG COMA REG COMA ENT
+    (31) i -> . ISLL REG COMA REG COMA ENT
+    (32) i -> . ILW REG COMA ENT PA REG PC
+    (33) i -> . ISW REG COMA ENT PA REG PC
+    (34) i -> . IBEQ REG COMA REG COMA ETIQ
+    (35) i -> . IBNE REG COMA REG COMA ETIQ
+    (36) i -> . IJ ETIQ
+    (37) i -> . ILI REG COMA ENT
+    (38) i -> . ILA REG COMA ETIQ
+    (39) i -> . IBGE REG COMA REG COMA ETIQ
+    (40) i -> . IBGEZ REG COMA ETIQ
+    (41) i -> . IBGT REG COMA REG COMA ETIQ
+    (42) i -> . IBGTZ REG COMA ETIQ
+    (43) i -> . IBLE REG COMA REG COMA ETIQ
+    (44) i -> . IBLEZ REG COMA ETIQ
+    (45) i -> . IBLT REG COMA REG COMA ETIQ
+    (46) i -> . IBLTZ REG COMA ETIQ
+    (47) i -> . IADDI REG COMA REG COMA ENTN
+    (48) i -> . IANDI REG COMA REG COMA ENTN
+    (49) i -> . IORI REG COMA REG COMA ENTN
+    (50) i -> . ILW REG COMA ENTN PA REG PC
+    (51) i -> . ISW REG COMA ENTN PA REG PC
+    (52) i -> . ILI REG COMA ENTN
+    (53) i -> . ISLT REG COMA REG COMA REG
+    (54) i -> . ISLTI REG COMA REG COMA ENT
+    (55) i -> . ISEQ REG COMA REG COMA REG
+    (56) i -> . ISGE REG COMA REG COMA REG
+    (57) i -> . ISGT REG COMA REG COMA REG
+    (58) i -> . ISLE REG COMA REG COMA REG
+    (59) i -> . ISNE REG COMA REG COMA REG
+
+    IADD            shift and go to state 25
+    IADDI           shift and go to state 15
+    ISUB            shift and go to state 26
+    IAND            shift and go to state 13
+    IANDI           shift and go to state 14
+    IOR             shift and go to state 28
+    IORI            shift and go to state 33
+    ISLL            shift and go to state 45
+    ILW             shift and go to state 22
+    ISW             shift and go to state 19
+    IBEQ            shift and go to state 48
+    IBNE            shift and go to state 20
+    IJ              shift and go to state 37
+    ILI             shift and go to state 21
+    ILA             shift and go to state 18
+    IBGE            shift and go to state 41
+    IBGEZ           shift and go to state 30
+    IBGT            shift and go to state 29
+    IBGTZ           shift and go to state 38
+    IBLE            shift and go to state 23
+    IBLEZ           shift and go to state 44
+    IBLT            shift and go to state 17
+    IBLTZ           shift and go to state 24
+    ISLT            shift and go to state 43
+    ISLTI           shift and go to state 34
+    ISEQ            shift and go to state 32
+    ISGE            shift and go to state 39
+    ISGT            shift and go to state 36
+    ISLE            shift and go to state 47
+    ISNE            shift and go to state 16
+
+
+    i                              shift and go to state 86
+
+state 41
+
+    (39) i -> IBGE . REG COMA REG COMA ETIQ
+
+    REG             shift and go to state 87
+
+
+
+state 42
+
+    (7) bi -> i . sl bi
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    SL              shift and go to state 6
+
+
+    sl                             shift and go to state 88
+
+state 43
+
+    (53) i -> ISLT . REG COMA REG COMA REG
+
+    REG             shift and go to state 89
+
+
+
+state 44
+
+    (44) i -> IBLEZ . REG COMA ETIQ
+
+    REG             shift and go to state 90
+
+
+
+state 45
+
+    (31) i -> ISLL . REG COMA REG COMA ENT
+
+    REG             shift and go to state 91
+
+
+
+state 46
+
+    (11) bi -> sl . bi
+    (7) bi -> . i sl bi
+    (8) bi -> . e i sl bi
+    (9) bi -> . end sl
+    (10) bi -> . end
+    (11) bi -> . sl bi
+    (24) i -> . IADD REG COMA REG COMA REG
+    (25) i -> . IADDI REG COMA REG COMA ENT
+    (26) i -> . ISUB REG COMA REG COMA REG
+    (27) i -> . IAND REG COMA REG COMA REG
+    (28) i -> . IANDI REG COMA REG COMA ENT
+    (29) i -> . IOR REG COMA REG COMA REG
+    (30) i -> . IORI REG COMA REG COMA ENT
+    (31) i -> . ISLL REG COMA REG COMA ENT
+    (32) i -> . ILW REG COMA ENT PA REG PC
+    (33) i -> . ISW REG COMA ENT PA REG PC
+    (34) i -> . IBEQ REG COMA REG COMA ETIQ
+    (35) i -> . IBNE REG COMA REG COMA ETIQ
+    (36) i -> . IJ ETIQ
+    (37) i -> . ILI REG COMA ENT
+    (38) i -> . ILA REG COMA ETIQ
+    (39) i -> . IBGE REG COMA REG COMA ETIQ
+    (40) i -> . IBGEZ REG COMA ETIQ
+    (41) i -> . IBGT REG COMA REG COMA ETIQ
+    (42) i -> . IBGTZ REG COMA ETIQ
+    (43) i -> . IBLE REG COMA REG COMA ETIQ
+    (44) i -> . IBLEZ REG COMA ETIQ
+    (45) i -> . IBLT REG COMA REG COMA ETIQ
+    (46) i -> . IBLTZ REG COMA ETIQ
+    (47) i -> . IADDI REG COMA REG COMA ENTN
+    (48) i -> . IANDI REG COMA REG COMA ENTN
+    (49) i -> . IORI REG COMA REG COMA ENTN
+    (50) i -> . ILW REG COMA ENTN PA REG PC
+    (51) i -> . ISW REG COMA ENTN PA REG PC
+    (52) i -> . ILI REG COMA ENTN
+    (53) i -> . ISLT REG COMA REG COMA REG
+    (54) i -> . ISLTI REG COMA REG COMA ENT
+    (55) i -> . ISEQ REG COMA REG COMA REG
+    (56) i -> . ISGE REG COMA REG COMA REG
+    (57) i -> . ISGT REG COMA REG COMA REG
+    (58) i -> . ISLE REG COMA REG COMA REG
+    (59) i -> . ISNE REG COMA REG COMA REG
+    (12) e -> . ETIQ DP
+    (60) end -> . DEND
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    IADD            shift and go to state 25
+    IADDI           shift and go to state 15
+    ISUB            shift and go to state 26
+    IAND            shift and go to state 13
+    IANDI           shift and go to state 14
+    IOR             shift and go to state 28
+    IORI            shift and go to state 33
+    ISLL            shift and go to state 45
+    ILW             shift and go to state 22
+    ISW             shift and go to state 19
+    IBEQ            shift and go to state 48
+    IBNE            shift and go to state 20
+    IJ              shift and go to state 37
+    ILI             shift and go to state 21
+    ILA             shift and go to state 18
+    IBGE            shift and go to state 41
+    IBGEZ           shift and go to state 30
+    IBGT            shift and go to state 29
+    IBGTZ           shift and go to state 38
+    IBLE            shift and go to state 23
+    IBLEZ           shift and go to state 44
+    IBLT            shift and go to state 17
+    IBLTZ           shift and go to state 24
+    ISLT            shift and go to state 43
+    ISLTI           shift and go to state 34
+    ISEQ            shift and go to state 32
+    ISGE            shift and go to state 39
+    ISGT            shift and go to state 36
+    ISLE            shift and go to state 47
+    ISNE            shift and go to state 16
+    ETIQ            shift and go to state 12
+    DEND            shift and go to state 31
+    SL              shift and go to state 6
+
+
+    i                              shift and go to state 42
+    end                            shift and go to state 27
+    e                              shift and go to state 40
+    bi                             shift and go to state 92
+    sl                             shift and go to state 46
+
+state 47
+
+    (58) i -> ISLE . REG COMA REG COMA REG
+
+    REG             shift and go to state 93
+
+
+
+state 48
+
+    (34) i -> IBEQ . REG COMA REG COMA ETIQ
+
+    REG             shift and go to state 94
+
+
+
+state 49
+
+    (15) d -> DDATA DIRHEX .
+
+    SL              reduce using rule 15 (d -> DDATA DIRHEX .)
+
+
+
+state 50
+
+    (3) bd -> e d . sl bd
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    SL              shift and go to state 6
+
+
+    sl                             shift and go to state 95
+
+state 51
+
+    (4) bd -> e DTEXT . sl
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    SL              shift and go to state 6
+
+
+    sl                             shift and go to state 96
+
+state 52
+
+    (2) bd -> d sl . bd
+    (2) bd -> . d sl bd
+    (3) bd -> . e d sl bd
+    (4) bd -> . e DTEXT sl
+    (5) bd -> . DTEXT sl
+    (6) bd -> . sl bd
+    (13) d -> . DWORD enteros
+    (14) d -> . space
+    (15) d -> . DDATA DIRHEX
+    (12) e -> . ETIQ DP
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+    (20) space -> . DSPACE ENT
+    (21) space -> . DSPACE
+
+    DTEXT           shift and go to state 7
+    DWORD           shift and go to state 11
+    DDATA           shift and go to state 2
+    ETIQ            shift and go to state 12
+    SL              shift and go to state 6
+    DSPACE          shift and go to state 8
+
+
+    bd                             shift and go to state 97
+    e                              shift and go to state 3
+    d                              shift and go to state 4
+    space                          shift and go to state 5
+    sl                             shift and go to state 10
+
+state 53
+
+    (22) sl -> SL sl .
+
+    IADD            reduce using rule 22 (sl -> SL sl .)
+    IADDI           reduce using rule 22 (sl -> SL sl .)
+    ISUB            reduce using rule 22 (sl -> SL sl .)
+    IAND            reduce using rule 22 (sl -> SL sl .)
+    IANDI           reduce using rule 22 (sl -> SL sl .)
+    IOR             reduce using rule 22 (sl -> SL sl .)
+    IORI            reduce using rule 22 (sl -> SL sl .)
+    ISLL            reduce using rule 22 (sl -> SL sl .)
+    ILW             reduce using rule 22 (sl -> SL sl .)
+    ISW             reduce using rule 22 (sl -> SL sl .)
+    IBEQ            reduce using rule 22 (sl -> SL sl .)
+    IBNE            reduce using rule 22 (sl -> SL sl .)
+    IJ              reduce using rule 22 (sl -> SL sl .)
+    ILI             reduce using rule 22 (sl -> SL sl .)
+    ILA             reduce using rule 22 (sl -> SL sl .)
+    IBGE            reduce using rule 22 (sl -> SL sl .)
+    IBGEZ           reduce using rule 22 (sl -> SL sl .)
+    IBGT            reduce using rule 22 (sl -> SL sl .)
+    IBGTZ           reduce using rule 22 (sl -> SL sl .)
+    IBLE            reduce using rule 22 (sl -> SL sl .)
+    IBLEZ           reduce using rule 22 (sl -> SL sl .)
+    IBLT            reduce using rule 22 (sl -> SL sl .)
+    IBLTZ           reduce using rule 22 (sl -> SL sl .)
+    ISLT            reduce using rule 22 (sl -> SL sl .)
+    ISLTI           reduce using rule 22 (sl -> SL sl .)
+    ISEQ            reduce using rule 22 (sl -> SL sl .)
+    ISGE            reduce using rule 22 (sl -> SL sl .)
+    ISGT            reduce using rule 22 (sl -> SL sl .)
+    ISLE            reduce using rule 22 (sl -> SL sl .)
+    ISNE            reduce using rule 22 (sl -> SL sl .)
+    ETIQ            reduce using rule 22 (sl -> SL sl .)
+    DEND            reduce using rule 22 (sl -> SL sl .)
+    SL              reduce using rule 22 (sl -> SL sl .)
+    DTEXT           reduce using rule 22 (sl -> SL sl .)
+    DWORD           reduce using rule 22 (sl -> SL sl .)
+    DDATA           reduce using rule 22 (sl -> SL sl .)
+    DSPACE          reduce using rule 22 (sl -> SL sl .)
+    $end            reduce using rule 22 (sl -> SL sl .)
+
+
+
+state 54
+
+    (5) bd -> DTEXT sl .
+
+    IADD            reduce using rule 5 (bd -> DTEXT sl .)
+    IADDI           reduce using rule 5 (bd -> DTEXT sl .)
+    ISUB            reduce using rule 5 (bd -> DTEXT sl .)
+    IAND            reduce using rule 5 (bd -> DTEXT sl .)
+    IANDI           reduce using rule 5 (bd -> DTEXT sl .)
+    IOR             reduce using rule 5 (bd -> DTEXT sl .)
+    IORI            reduce using rule 5 (bd -> DTEXT sl .)
+    ISLL            reduce using rule 5 (bd -> DTEXT sl .)
+    ILW             reduce using rule 5 (bd -> DTEXT sl .)
+    ISW             reduce using rule 5 (bd -> DTEXT sl .)
+    IBEQ            reduce using rule 5 (bd -> DTEXT sl .)
+    IBNE            reduce using rule 5 (bd -> DTEXT sl .)
+    IJ              reduce using rule 5 (bd -> DTEXT sl .)
+    ILI             reduce using rule 5 (bd -> DTEXT sl .)
+    ILA             reduce using rule 5 (bd -> DTEXT sl .)
+    IBGE            reduce using rule 5 (bd -> DTEXT sl .)
+    IBGEZ           reduce using rule 5 (bd -> DTEXT sl .)
+    IBGT            reduce using rule 5 (bd -> DTEXT sl .)
+    IBGTZ           reduce using rule 5 (bd -> DTEXT sl .)
+    IBLE            reduce using rule 5 (bd -> DTEXT sl .)
+    IBLEZ           reduce using rule 5 (bd -> DTEXT sl .)
+    IBLT            reduce using rule 5 (bd -> DTEXT sl .)
+    IBLTZ           reduce using rule 5 (bd -> DTEXT sl .)
+    ISLT            reduce using rule 5 (bd -> DTEXT sl .)
+    ISLTI           reduce using rule 5 (bd -> DTEXT sl .)
+    ISEQ            reduce using rule 5 (bd -> DTEXT sl .)
+    ISGE            reduce using rule 5 (bd -> DTEXT sl .)
+    ISGT            reduce using rule 5 (bd -> DTEXT sl .)
+    ISLE            reduce using rule 5 (bd -> DTEXT sl .)
+    ISNE            reduce using rule 5 (bd -> DTEXT sl .)
+    ETIQ            reduce using rule 5 (bd -> DTEXT sl .)
+    DEND            reduce using rule 5 (bd -> DTEXT sl .)
+    SL              reduce using rule 5 (bd -> DTEXT sl .)
+
+
+
+state 55
+
+    (20) space -> DSPACE ENT .
+
+    SL              reduce using rule 20 (space -> DSPACE ENT .)
+
+
+
+state 56
+
+    (6) bd -> sl bd .
+
+    IADD            reduce using rule 6 (bd -> sl bd .)
+    IADDI           reduce using rule 6 (bd -> sl bd .)
+    ISUB            reduce using rule 6 (bd -> sl bd .)
+    IAND            reduce using rule 6 (bd -> sl bd .)
+    IANDI           reduce using rule 6 (bd -> sl bd .)
+    IOR             reduce using rule 6 (bd -> sl bd .)
+    IORI            reduce using rule 6 (bd -> sl bd .)
+    ISLL            reduce using rule 6 (bd -> sl bd .)
+    ILW             reduce using rule 6 (bd -> sl bd .)
+    ISW             reduce using rule 6 (bd -> sl bd .)
+    IBEQ            reduce using rule 6 (bd -> sl bd .)
+    IBNE            reduce using rule 6 (bd -> sl bd .)
+    IJ              reduce using rule 6 (bd -> sl bd .)
+    ILI             reduce using rule 6 (bd -> sl bd .)
+    ILA             reduce using rule 6 (bd -> sl bd .)
+    IBGE            reduce using rule 6 (bd -> sl bd .)
+    IBGEZ           reduce using rule 6 (bd -> sl bd .)
+    IBGT            reduce using rule 6 (bd -> sl bd .)
+    IBGTZ           reduce using rule 6 (bd -> sl bd .)
+    IBLE            reduce using rule 6 (bd -> sl bd .)
+    IBLEZ           reduce using rule 6 (bd -> sl bd .)
+    IBLT            reduce using rule 6 (bd -> sl bd .)
+    IBLTZ           reduce using rule 6 (bd -> sl bd .)
+    ISLT            reduce using rule 6 (bd -> sl bd .)
+    ISLTI           reduce using rule 6 (bd -> sl bd .)
+    ISEQ            reduce using rule 6 (bd -> sl bd .)
+    ISGE            reduce using rule 6 (bd -> sl bd .)
+    ISGT            reduce using rule 6 (bd -> sl bd .)
+    ISLE            reduce using rule 6 (bd -> sl bd .)
+    ISNE            reduce using rule 6 (bd -> sl bd .)
+    ETIQ            reduce using rule 6 (bd -> sl bd .)
+    DEND            reduce using rule 6 (bd -> sl bd .)
+    SL              reduce using rule 6 (bd -> sl bd .)
+
+
+
+state 57
+
+    (16) enteros -> ENTN . COMA enteros
+    (19) enteros -> ENTN .
+
+    COMA            shift and go to state 98
+    SL              reduce using rule 19 (enteros -> ENTN .)
+
+
+
+state 58
+
+    (17) enteros -> ENT . COMA enteros
+    (18) enteros -> ENT .
+
+    COMA            shift and go to state 99
+    SL              reduce using rule 18 (enteros -> ENT .)
+
+
+
+state 59
+
+    (13) d -> DWORD enteros .
+
+    SL              reduce using rule 13 (d -> DWORD enteros .)
+
+
+
+state 60
+
+    (12) e -> ETIQ DP .
+
+    IADD            reduce using rule 12 (e -> ETIQ DP .)
+    IADDI           reduce using rule 12 (e -> ETIQ DP .)
+    ISUB            reduce using rule 12 (e -> ETIQ DP .)
+    IAND            reduce using rule 12 (e -> ETIQ DP .)
+    IANDI           reduce using rule 12 (e -> ETIQ DP .)
+    IOR             reduce using rule 12 (e -> ETIQ DP .)
+    IORI            reduce using rule 12 (e -> ETIQ DP .)
+    ISLL            reduce using rule 12 (e -> ETIQ DP .)
+    ILW             reduce using rule 12 (e -> ETIQ DP .)
+    ISW             reduce using rule 12 (e -> ETIQ DP .)
+    IBEQ            reduce using rule 12 (e -> ETIQ DP .)
+    IBNE            reduce using rule 12 (e -> ETIQ DP .)
+    IJ              reduce using rule 12 (e -> ETIQ DP .)
+    ILI             reduce using rule 12 (e -> ETIQ DP .)
+    ILA             reduce using rule 12 (e -> ETIQ DP .)
+    IBGE            reduce using rule 12 (e -> ETIQ DP .)
+    IBGEZ           reduce using rule 12 (e -> ETIQ DP .)
+    IBGT            reduce using rule 12 (e -> ETIQ DP .)
+    IBGTZ           reduce using rule 12 (e -> ETIQ DP .)
+    IBLE            reduce using rule 12 (e -> ETIQ DP .)
+    IBLEZ           reduce using rule 12 (e -> ETIQ DP .)
+    IBLT            reduce using rule 12 (e -> ETIQ DP .)
+    IBLTZ           reduce using rule 12 (e -> ETIQ DP .)
+    ISLT            reduce using rule 12 (e -> ETIQ DP .)
+    ISLTI           reduce using rule 12 (e -> ETIQ DP .)
+    ISEQ            reduce using rule 12 (e -> ETIQ DP .)
+    ISGE            reduce using rule 12 (e -> ETIQ DP .)
+    ISGT            reduce using rule 12 (e -> ETIQ DP .)
+    ISLE            reduce using rule 12 (e -> ETIQ DP .)
+    ISNE            reduce using rule 12 (e -> ETIQ DP .)
+    DTEXT           reduce using rule 12 (e -> ETIQ DP .)
+    DWORD           reduce using rule 12 (e -> ETIQ DP .)
+    DDATA           reduce using rule 12 (e -> ETIQ DP .)
+    DSPACE          reduce using rule 12 (e -> ETIQ DP .)
+
+
+
+state 61
+
+    (27) i -> IAND REG . COMA REG COMA REG
+
+    COMA            shift and go to state 100
+
+
+
+state 62
+
+    (28) i -> IANDI REG . COMA REG COMA ENT
+    (48) i -> IANDI REG . COMA REG COMA ENTN
+
+    COMA            shift and go to state 101
+
+
+
+state 63
+
+    (25) i -> IADDI REG . COMA REG COMA ENT
+    (47) i -> IADDI REG . COMA REG COMA ENTN
+
+    COMA            shift and go to state 102
+
+
+
+state 64
+
+    (59) i -> ISNE REG . COMA REG COMA REG
+
+    COMA            shift and go to state 103
+
+
+
+state 65
+
+    (45) i -> IBLT REG . COMA REG COMA ETIQ
+
+    COMA            shift and go to state 104
+
+
+
+state 66
+
+    (38) i -> ILA REG . COMA ETIQ
+
+    COMA            shift and go to state 105
+
+
+
+state 67
+
+    (33) i -> ISW REG . COMA ENT PA REG PC
+    (51) i -> ISW REG . COMA ENTN PA REG PC
+
+    COMA            shift and go to state 106
+
+
+
+state 68
+
+    (35) i -> IBNE REG . COMA REG COMA ETIQ
+
+    COMA            shift and go to state 107
+
+
+
+state 69
+
+    (37) i -> ILI REG . COMA ENT
+    (52) i -> ILI REG . COMA ENTN
+
+    COMA            shift and go to state 108
+
+
+
+state 70
+
+    (32) i -> ILW REG . COMA ENT PA REG PC
+    (50) i -> ILW REG . COMA ENTN PA REG PC
+
+    COMA            shift and go to state 109
+
+
+
+state 71
+
+    (43) i -> IBLE REG . COMA REG COMA ETIQ
+
+    COMA            shift and go to state 110
+
+
+
+state 72
+
+    (46) i -> IBLTZ REG . COMA ETIQ
+
+    COMA            shift and go to state 111
+
+
+
+state 73
+
+    (24) i -> IADD REG . COMA REG COMA REG
+
+    COMA            shift and go to state 112
+
+
+
+state 74
+
+    (26) i -> ISUB REG . COMA REG COMA REG
+
+    COMA            shift and go to state 113
+
+
+
+state 75
+
+    (9) bi -> end sl .
+
+    $end            reduce using rule 9 (bi -> end sl .)
+
+
+
+state 76
+
+    (29) i -> IOR REG . COMA REG COMA REG
+
+    COMA            shift and go to state 114
+
+
+
+state 77
+
+    (41) i -> IBGT REG . COMA REG COMA ETIQ
+
+    COMA            shift and go to state 115
+
+
+
+state 78
+
+    (40) i -> IBGEZ REG . COMA ETIQ
+
+    COMA            shift and go to state 116
+
+
+
+state 79
+
+    (55) i -> ISEQ REG . COMA REG COMA REG
+
+    COMA            shift and go to state 117
+
+
+
+state 80
+
+    (30) i -> IORI REG . COMA REG COMA ENT
+    (49) i -> IORI REG . COMA REG COMA ENTN
+
+    COMA            shift and go to state 118
+
+
+
+state 81
+
+    (54) i -> ISLTI REG . COMA REG COMA ENT
+
+    COMA            shift and go to state 119
+
+
+
+state 82
+
+    (57) i -> ISGT REG . COMA REG COMA REG
+
+    COMA            shift and go to state 120
+
+
+
+state 83
+
+    (36) i -> IJ ETIQ .
+
+    SL              reduce using rule 36 (i -> IJ ETIQ .)
+
+
+
+state 84
+
+    (42) i -> IBGTZ REG . COMA ETIQ
+
+    COMA            shift and go to state 121
+
+
+
+state 85
+
+    (56) i -> ISGE REG . COMA REG COMA REG
+
+    COMA            shift and go to state 122
+
+
+
+state 86
+
+    (8) bi -> e i . sl bi
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    SL              shift and go to state 6
+
+
+    sl                             shift and go to state 123
+
+state 87
+
+    (39) i -> IBGE REG . COMA REG COMA ETIQ
+
+    COMA            shift and go to state 124
+
+
+
+state 88
+
+    (7) bi -> i sl . bi
+    (7) bi -> . i sl bi
+    (8) bi -> . e i sl bi
+    (9) bi -> . end sl
+    (10) bi -> . end
+    (11) bi -> . sl bi
+    (24) i -> . IADD REG COMA REG COMA REG
+    (25) i -> . IADDI REG COMA REG COMA ENT
+    (26) i -> . ISUB REG COMA REG COMA REG
+    (27) i -> . IAND REG COMA REG COMA REG
+    (28) i -> . IANDI REG COMA REG COMA ENT
+    (29) i -> . IOR REG COMA REG COMA REG
+    (30) i -> . IORI REG COMA REG COMA ENT
+    (31) i -> . ISLL REG COMA REG COMA ENT
+    (32) i -> . ILW REG COMA ENT PA REG PC
+    (33) i -> . ISW REG COMA ENT PA REG PC
+    (34) i -> . IBEQ REG COMA REG COMA ETIQ
+    (35) i -> . IBNE REG COMA REG COMA ETIQ
+    (36) i -> . IJ ETIQ
+    (37) i -> . ILI REG COMA ENT
+    (38) i -> . ILA REG COMA ETIQ
+    (39) i -> . IBGE REG COMA REG COMA ETIQ
+    (40) i -> . IBGEZ REG COMA ETIQ
+    (41) i -> . IBGT REG COMA REG COMA ETIQ
+    (42) i -> . IBGTZ REG COMA ETIQ
+    (43) i -> . IBLE REG COMA REG COMA ETIQ
+    (44) i -> . IBLEZ REG COMA ETIQ
+    (45) i -> . IBLT REG COMA REG COMA ETIQ
+    (46) i -> . IBLTZ REG COMA ETIQ
+    (47) i -> . IADDI REG COMA REG COMA ENTN
+    (48) i -> . IANDI REG COMA REG COMA ENTN
+    (49) i -> . IORI REG COMA REG COMA ENTN
+    (50) i -> . ILW REG COMA ENTN PA REG PC
+    (51) i -> . ISW REG COMA ENTN PA REG PC
+    (52) i -> . ILI REG COMA ENTN
+    (53) i -> . ISLT REG COMA REG COMA REG
+    (54) i -> . ISLTI REG COMA REG COMA ENT
+    (55) i -> . ISEQ REG COMA REG COMA REG
+    (56) i -> . ISGE REG COMA REG COMA REG
+    (57) i -> . ISGT REG COMA REG COMA REG
+    (58) i -> . ISLE REG COMA REG COMA REG
+    (59) i -> . ISNE REG COMA REG COMA REG
+    (12) e -> . ETIQ DP
+    (60) end -> . DEND
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    IADD            shift and go to state 25
+    IADDI           shift and go to state 15
+    ISUB            shift and go to state 26
+    IAND            shift and go to state 13
+    IANDI           shift and go to state 14
+    IOR             shift and go to state 28
+    IORI            shift and go to state 33
+    ISLL            shift and go to state 45
+    ILW             shift and go to state 22
+    ISW             shift and go to state 19
+    IBEQ            shift and go to state 48
+    IBNE            shift and go to state 20
+    IJ              shift and go to state 37
+    ILI             shift and go to state 21
+    ILA             shift and go to state 18
+    IBGE            shift and go to state 41
+    IBGEZ           shift and go to state 30
+    IBGT            shift and go to state 29
+    IBGTZ           shift and go to state 38
+    IBLE            shift and go to state 23
+    IBLEZ           shift and go to state 44
+    IBLT            shift and go to state 17
+    IBLTZ           shift and go to state 24
+    ISLT            shift and go to state 43
+    ISLTI           shift and go to state 34
+    ISEQ            shift and go to state 32
+    ISGE            shift and go to state 39
+    ISGT            shift and go to state 36
+    ISLE            shift and go to state 47
+    ISNE            shift and go to state 16
+    ETIQ            shift and go to state 12
+    DEND            shift and go to state 31
+    SL              shift and go to state 6
+
+
+    i                              shift and go to state 42
+    end                            shift and go to state 27
+    e                              shift and go to state 40
+    bi                             shift and go to state 125
+    sl                             shift and go to state 46
+
+state 89
+
+    (53) i -> ISLT REG . COMA REG COMA REG
+
+    COMA            shift and go to state 126
+
+
+
+state 90
+
+    (44) i -> IBLEZ REG . COMA ETIQ
+
+    COMA            shift and go to state 127
+
+
+
+state 91
+
+    (31) i -> ISLL REG . COMA REG COMA ENT
+
+    COMA            shift and go to state 128
+
+
+
+state 92
+
+    (11) bi -> sl bi .
+
+    $end            reduce using rule 11 (bi -> sl bi .)
+
+
+
+state 93
+
+    (58) i -> ISLE REG . COMA REG COMA REG
+
+    COMA            shift and go to state 129
+
+
+
+state 94
+
+    (34) i -> IBEQ REG . COMA REG COMA ETIQ
+
+    COMA            shift and go to state 130
+
+
+
+state 95
+
+    (3) bd -> e d sl . bd
+    (2) bd -> . d sl bd
+    (3) bd -> . e d sl bd
+    (4) bd -> . e DTEXT sl
+    (5) bd -> . DTEXT sl
+    (6) bd -> . sl bd
+    (13) d -> . DWORD enteros
+    (14) d -> . space
+    (15) d -> . DDATA DIRHEX
+    (12) e -> . ETIQ DP
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+    (20) space -> . DSPACE ENT
+    (21) space -> . DSPACE
+
+    DTEXT           shift and go to state 7
+    DWORD           shift and go to state 11
+    DDATA           shift and go to state 2
+    ETIQ            shift and go to state 12
+    SL              shift and go to state 6
+    DSPACE          shift and go to state 8
+
+
+    bd                             shift and go to state 131
+    e                              shift and go to state 3
+    d                              shift and go to state 4
+    space                          shift and go to state 5
+    sl                             shift and go to state 10
+
+state 96
+
+    (4) bd -> e DTEXT sl .
+
+    IADD            reduce using rule 4 (bd -> e DTEXT sl .)
+    IADDI           reduce using rule 4 (bd -> e DTEXT sl .)
+    ISUB            reduce using rule 4 (bd -> e DTEXT sl .)
+    IAND            reduce using rule 4 (bd -> e DTEXT sl .)
+    IANDI           reduce using rule 4 (bd -> e DTEXT sl .)
+    IOR             reduce using rule 4 (bd -> e DTEXT sl .)
+    IORI            reduce using rule 4 (bd -> e DTEXT sl .)
+    ISLL            reduce using rule 4 (bd -> e DTEXT sl .)
+    ILW             reduce using rule 4 (bd -> e DTEXT sl .)
+    ISW             reduce using rule 4 (bd -> e DTEXT sl .)
+    IBEQ            reduce using rule 4 (bd -> e DTEXT sl .)
+    IBNE            reduce using rule 4 (bd -> e DTEXT sl .)
+    IJ              reduce using rule 4 (bd -> e DTEXT sl .)
+    ILI             reduce using rule 4 (bd -> e DTEXT sl .)
+    ILA             reduce using rule 4 (bd -> e DTEXT sl .)
+    IBGE            reduce using rule 4 (bd -> e DTEXT sl .)
+    IBGEZ           reduce using rule 4 (bd -> e DTEXT sl .)
+    IBGT            reduce using rule 4 (bd -> e DTEXT sl .)
+    IBGTZ           reduce using rule 4 (bd -> e DTEXT sl .)
+    IBLE            reduce using rule 4 (bd -> e DTEXT sl .)
+    IBLEZ           reduce using rule 4 (bd -> e DTEXT sl .)
+    IBLT            reduce using rule 4 (bd -> e DTEXT sl .)
+    IBLTZ           reduce using rule 4 (bd -> e DTEXT sl .)
+    ISLT            reduce using rule 4 (bd -> e DTEXT sl .)
+    ISLTI           reduce using rule 4 (bd -> e DTEXT sl .)
+    ISEQ            reduce using rule 4 (bd -> e DTEXT sl .)
+    ISGE            reduce using rule 4 (bd -> e DTEXT sl .)
+    ISGT            reduce using rule 4 (bd -> e DTEXT sl .)
+    ISLE            reduce using rule 4 (bd -> e DTEXT sl .)
+    ISNE            reduce using rule 4 (bd -> e DTEXT sl .)
+    ETIQ            reduce using rule 4 (bd -> e DTEXT sl .)
+    DEND            reduce using rule 4 (bd -> e DTEXT sl .)
+    SL              reduce using rule 4 (bd -> e DTEXT sl .)
+
+
+
+state 97
+
+    (2) bd -> d sl bd .
+
+    IADD            reduce using rule 2 (bd -> d sl bd .)
+    IADDI           reduce using rule 2 (bd -> d sl bd .)
+    ISUB            reduce using rule 2 (bd -> d sl bd .)
+    IAND            reduce using rule 2 (bd -> d sl bd .)
+    IANDI           reduce using rule 2 (bd -> d sl bd .)
+    IOR             reduce using rule 2 (bd -> d sl bd .)
+    IORI            reduce using rule 2 (bd -> d sl bd .)
+    ISLL            reduce using rule 2 (bd -> d sl bd .)
+    ILW             reduce using rule 2 (bd -> d sl bd .)
+    ISW             reduce using rule 2 (bd -> d sl bd .)
+    IBEQ            reduce using rule 2 (bd -> d sl bd .)
+    IBNE            reduce using rule 2 (bd -> d sl bd .)
+    IJ              reduce using rule 2 (bd -> d sl bd .)
+    ILI             reduce using rule 2 (bd -> d sl bd .)
+    ILA             reduce using rule 2 (bd -> d sl bd .)
+    IBGE            reduce using rule 2 (bd -> d sl bd .)
+    IBGEZ           reduce using rule 2 (bd -> d sl bd .)
+    IBGT            reduce using rule 2 (bd -> d sl bd .)
+    IBGTZ           reduce using rule 2 (bd -> d sl bd .)
+    IBLE            reduce using rule 2 (bd -> d sl bd .)
+    IBLEZ           reduce using rule 2 (bd -> d sl bd .)
+    IBLT            reduce using rule 2 (bd -> d sl bd .)
+    IBLTZ           reduce using rule 2 (bd -> d sl bd .)
+    ISLT            reduce using rule 2 (bd -> d sl bd .)
+    ISLTI           reduce using rule 2 (bd -> d sl bd .)
+    ISEQ            reduce using rule 2 (bd -> d sl bd .)
+    ISGE            reduce using rule 2 (bd -> d sl bd .)
+    ISGT            reduce using rule 2 (bd -> d sl bd .)
+    ISLE            reduce using rule 2 (bd -> d sl bd .)
+    ISNE            reduce using rule 2 (bd -> d sl bd .)
+    ETIQ            reduce using rule 2 (bd -> d sl bd .)
+    DEND            reduce using rule 2 (bd -> d sl bd .)
+    SL              reduce using rule 2 (bd -> d sl bd .)
+
+
+
+state 98
+
+    (16) enteros -> ENTN COMA . enteros
+    (16) enteros -> . ENTN COMA enteros
+    (17) enteros -> . ENT COMA enteros
+    (18) enteros -> . ENT
+    (19) enteros -> . ENTN
+
+    ENTN            shift and go to state 57
+    ENT             shift and go to state 58
+
+
+    enteros                        shift and go to state 132
+
+state 99
+
+    (17) enteros -> ENT COMA . enteros
+    (16) enteros -> . ENTN COMA enteros
+    (17) enteros -> . ENT COMA enteros
+    (18) enteros -> . ENT
+    (19) enteros -> . ENTN
+
+    ENTN            shift and go to state 57
+    ENT             shift and go to state 58
+
+
+    enteros                        shift and go to state 133
+
+state 100
+
+    (27) i -> IAND REG COMA . REG COMA REG
+
+    REG             shift and go to state 134
+
+
+
+state 101
+
+    (28) i -> IANDI REG COMA . REG COMA ENT
+    (48) i -> IANDI REG COMA . REG COMA ENTN
+
+    REG             shift and go to state 135
+
+
+
+state 102
+
+    (25) i -> IADDI REG COMA . REG COMA ENT
+    (47) i -> IADDI REG COMA . REG COMA ENTN
+
+    REG             shift and go to state 136
+
+
+
+state 103
+
+    (59) i -> ISNE REG COMA . REG COMA REG
+
+    REG             shift and go to state 137
+
+
+
+state 104
+
+    (45) i -> IBLT REG COMA . REG COMA ETIQ
+
+    REG             shift and go to state 138
+
+
+
+state 105
+
+    (38) i -> ILA REG COMA . ETIQ
+
+    ETIQ            shift and go to state 139
+
+
+
+state 106
+
+    (33) i -> ISW REG COMA . ENT PA REG PC
+    (51) i -> ISW REG COMA . ENTN PA REG PC
+
+    ENT             shift and go to state 141
+    ENTN            shift and go to state 140
+
+
+
+state 107
+
+    (35) i -> IBNE REG COMA . REG COMA ETIQ
+
+    REG             shift and go to state 142
+
+
+
+state 108
+
+    (37) i -> ILI REG COMA . ENT
+    (52) i -> ILI REG COMA . ENTN
+
+    ENT             shift and go to state 144
+    ENTN            shift and go to state 143
+
+
+
+state 109
+
+    (32) i -> ILW REG COMA . ENT PA REG PC
+    (50) i -> ILW REG COMA . ENTN PA REG PC
+
+    ENT             shift and go to state 146
+    ENTN            shift and go to state 145
+
+
+
+state 110
+
+    (43) i -> IBLE REG COMA . REG COMA ETIQ
+
+    REG             shift and go to state 147
+
+
+
+state 111
+
+    (46) i -> IBLTZ REG COMA . ETIQ
+
+    ETIQ            shift and go to state 148
+
+
+
+state 112
+
+    (24) i -> IADD REG COMA . REG COMA REG
+
+    REG             shift and go to state 149
+
+
+
+state 113
+
+    (26) i -> ISUB REG COMA . REG COMA REG
+
+    REG             shift and go to state 150
+
+
+
+state 114
+
+    (29) i -> IOR REG COMA . REG COMA REG
+
+    REG             shift and go to state 151
+
+
+
+state 115
+
+    (41) i -> IBGT REG COMA . REG COMA ETIQ
+
+    REG             shift and go to state 152
+
+
+
+state 116
+
+    (40) i -> IBGEZ REG COMA . ETIQ
+
+    ETIQ            shift and go to state 153
+
+
+
+state 117
+
+    (55) i -> ISEQ REG COMA . REG COMA REG
+
+    REG             shift and go to state 154
+
+
+
+state 118
+
+    (30) i -> IORI REG COMA . REG COMA ENT
+    (49) i -> IORI REG COMA . REG COMA ENTN
+
+    REG             shift and go to state 155
+
+
+
+state 119
+
+    (54) i -> ISLTI REG COMA . REG COMA ENT
+
+    REG             shift and go to state 156
+
+
+
+state 120
+
+    (57) i -> ISGT REG COMA . REG COMA REG
+
+    REG             shift and go to state 157
+
+
+
+state 121
+
+    (42) i -> IBGTZ REG COMA . ETIQ
+
+    ETIQ            shift and go to state 158
+
+
+
+state 122
+
+    (56) i -> ISGE REG COMA . REG COMA REG
+
+    REG             shift and go to state 159
+
+
+
+state 123
+
+    (8) bi -> e i sl . bi
+    (7) bi -> . i sl bi
+    (8) bi -> . e i sl bi
+    (9) bi -> . end sl
+    (10) bi -> . end
+    (11) bi -> . sl bi
+    (24) i -> . IADD REG COMA REG COMA REG
+    (25) i -> . IADDI REG COMA REG COMA ENT
+    (26) i -> . ISUB REG COMA REG COMA REG
+    (27) i -> . IAND REG COMA REG COMA REG
+    (28) i -> . IANDI REG COMA REG COMA ENT
+    (29) i -> . IOR REG COMA REG COMA REG
+    (30) i -> . IORI REG COMA REG COMA ENT
+    (31) i -> . ISLL REG COMA REG COMA ENT
+    (32) i -> . ILW REG COMA ENT PA REG PC
+    (33) i -> . ISW REG COMA ENT PA REG PC
+    (34) i -> . IBEQ REG COMA REG COMA ETIQ
+    (35) i -> . IBNE REG COMA REG COMA ETIQ
+    (36) i -> . IJ ETIQ
+    (37) i -> . ILI REG COMA ENT
+    (38) i -> . ILA REG COMA ETIQ
+    (39) i -> . IBGE REG COMA REG COMA ETIQ
+    (40) i -> . IBGEZ REG COMA ETIQ
+    (41) i -> . IBGT REG COMA REG COMA ETIQ
+    (42) i -> . IBGTZ REG COMA ETIQ
+    (43) i -> . IBLE REG COMA REG COMA ETIQ
+    (44) i -> . IBLEZ REG COMA ETIQ
+    (45) i -> . IBLT REG COMA REG COMA ETIQ
+    (46) i -> . IBLTZ REG COMA ETIQ
+    (47) i -> . IADDI REG COMA REG COMA ENTN
+    (48) i -> . IANDI REG COMA REG COMA ENTN
+    (49) i -> . IORI REG COMA REG COMA ENTN
+    (50) i -> . ILW REG COMA ENTN PA REG PC
+    (51) i -> . ISW REG COMA ENTN PA REG PC
+    (52) i -> . ILI REG COMA ENTN
+    (53) i -> . ISLT REG COMA REG COMA REG
+    (54) i -> . ISLTI REG COMA REG COMA ENT
+    (55) i -> . ISEQ REG COMA REG COMA REG
+    (56) i -> . ISGE REG COMA REG COMA REG
+    (57) i -> . ISGT REG COMA REG COMA REG
+    (58) i -> . ISLE REG COMA REG COMA REG
+    (59) i -> . ISNE REG COMA REG COMA REG
+    (12) e -> . ETIQ DP
+    (60) end -> . DEND
+    (22) sl -> . SL sl
+    (23) sl -> . SL
+
+    IADD            shift and go to state 25
+    IADDI           shift and go to state 15
+    ISUB            shift and go to state 26
+    IAND            shift and go to state 13
+    IANDI           shift and go to state 14
+    IOR             shift and go to state 28
+    IORI            shift and go to state 33
+    ISLL            shift and go to state 45
+    ILW             shift and go to state 22
+    ISW             shift and go to state 19
+    IBEQ            shift and go to state 48
+    IBNE            shift and go to state 20
+    IJ              shift and go to state 37
+    ILI             shift and go to state 21
+    ILA             shift and go to state 18
+    IBGE            shift and go to state 41
+    IBGEZ           shift and go to state 30
+    IBGT            shift and go to state 29
+    IBGTZ           shift and go to state 38
+    IBLE            shift and go to state 23
+    IBLEZ           shift and go to state 44
+    IBLT            shift and go to state 17
+    IBLTZ           shift and go to state 24
+    ISLT            shift and go to state 43
+    ISLTI           shift and go to state 34
+    ISEQ            shift and go to state 32
+    ISGE            shift and go to state 39
+    ISGT            shift and go to state 36
+    ISLE            shift and go to state 47
+    ISNE            shift and go to state 16
+    ETIQ            shift and go to state 12
+    DEND            shift and go to state 31
+    SL              shift and go to state 6
+
+
+    i                              shift and go to state 42
+    end                            shift and go to state 27
+    e                              shift and go to state 40
+    bi                             shift and go to state 160
+    sl                             shift and go to state 46
+
+state 124
+
+    (39) i -> IBGE REG COMA . REG COMA ETIQ
+
+    REG             shift and go to state 161
+
+
+
+state 125
+
+    (7) bi -> i sl bi .
+
+    $end            reduce using rule 7 (bi -> i sl bi .)
+
+
+
+state 126
+
+    (53) i -> ISLT REG COMA . REG COMA REG
+
+    REG             shift and go to state 162
+
+
+
+state 127
+
+    (44) i -> IBLEZ REG COMA . ETIQ
+
+    ETIQ            shift and go to state 163
+
+
+
+state 128
+
+    (31) i -> ISLL REG COMA . REG COMA ENT
+
+    REG             shift and go to state 164
+
+
+
+state 129
+
+    (58) i -> ISLE REG COMA . REG COMA REG
+
+    REG             shift and go to state 165
+
+
+
+state 130
+
+    (34) i -> IBEQ REG COMA . REG COMA ETIQ
+
+    REG             shift and go to state 166
+
+
+
+state 131
+
+    (3) bd -> e d sl bd .
+
+    IADD            reduce using rule 3 (bd -> e d sl bd .)
+    IADDI           reduce using rule 3 (bd -> e d sl bd .)
+    ISUB            reduce using rule 3 (bd -> e d sl bd .)
+    IAND            reduce using rule 3 (bd -> e d sl bd .)
+    IANDI           reduce using rule 3 (bd -> e d sl bd .)
+    IOR             reduce using rule 3 (bd -> e d sl bd .)
+    IORI            reduce using rule 3 (bd -> e d sl bd .)
+    ISLL            reduce using rule 3 (bd -> e d sl bd .)
+    ILW             reduce using rule 3 (bd -> e d sl bd .)
+    ISW             reduce using rule 3 (bd -> e d sl bd .)
+    IBEQ            reduce using rule 3 (bd -> e d sl bd .)
+    IBNE            reduce using rule 3 (bd -> e d sl bd .)
+    IJ              reduce using rule 3 (bd -> e d sl bd .)
+    ILI             reduce using rule 3 (bd -> e d sl bd .)
+    ILA             reduce using rule 3 (bd -> e d sl bd .)
+    IBGE            reduce using rule 3 (bd -> e d sl bd .)
+    IBGEZ           reduce using rule 3 (bd -> e d sl bd .)
+    IBGT            reduce using rule 3 (bd -> e d sl bd .)
+    IBGTZ           reduce using rule 3 (bd -> e d sl bd .)
+    IBLE            reduce using rule 3 (bd -> e d sl bd .)
+    IBLEZ           reduce using rule 3 (bd -> e d sl bd .)
+    IBLT            reduce using rule 3 (bd -> e d sl bd .)
+    IBLTZ           reduce using rule 3 (bd -> e d sl bd .)
+    ISLT            reduce using rule 3 (bd -> e d sl bd .)
+    ISLTI           reduce using rule 3 (bd -> e d sl bd .)
+    ISEQ            reduce using rule 3 (bd -> e d sl bd .)
+    ISGE            reduce using rule 3 (bd -> e d sl bd .)
+    ISGT            reduce using rule 3 (bd -> e d sl bd .)
+    ISLE            reduce using rule 3 (bd -> e d sl bd .)
+    ISNE            reduce using rule 3 (bd -> e d sl bd .)
+    ETIQ            reduce using rule 3 (bd -> e d sl bd .)
+    DEND            reduce using rule 3 (bd -> e d sl bd .)
+    SL              reduce using rule 3 (bd -> e d sl bd .)
+
+
+
+state 132
+
+    (16) enteros -> ENTN COMA enteros .
+
+    SL              reduce using rule 16 (enteros -> ENTN COMA enteros .)
+
+
+
+state 133
+
+    (17) enteros -> ENT COMA enteros .
+
+    SL              reduce using rule 17 (enteros -> ENT COMA enteros .)
+
+
+
+state 134
+
+    (27) i -> IAND REG COMA REG . COMA REG
+
+    COMA            shift and go to state 167
+
+
+
+state 135
+
+    (28) i -> IANDI REG COMA REG . COMA ENT
+    (48) i -> IANDI REG COMA REG . COMA ENTN
+
+    COMA            shift and go to state 168
+
+
+
+state 136
+
+    (25) i -> IADDI REG COMA REG . COMA ENT
+    (47) i -> IADDI REG COMA REG . COMA ENTN
+
+    COMA            shift and go to state 169
+
+
+
+state 137
+
+    (59) i -> ISNE REG COMA REG . COMA REG
+
+    COMA            shift and go to state 170
+
+
+
+state 138
+
+    (45) i -> IBLT REG COMA REG . COMA ETIQ
+
+    COMA            shift and go to state 171
+
+
+
+state 139
+
+    (38) i -> ILA REG COMA ETIQ .
+
+    SL              reduce using rule 38 (i -> ILA REG COMA ETIQ .)
+
+
+
+state 140
+
+    (51) i -> ISW REG COMA ENTN . PA REG PC
+
+    PA              shift and go to state 172
+
+
+
+state 141
+
+    (33) i -> ISW REG COMA ENT . PA REG PC
+
+    PA              shift and go to state 173
+
+
+
+state 142
+
+    (35) i -> IBNE REG COMA REG . COMA ETIQ
+
+    COMA            shift and go to state 174
+
+
+
+state 143
+
+    (52) i -> ILI REG COMA ENTN .
+
+    SL              reduce using rule 52 (i -> ILI REG COMA ENTN .)
+
+
+
+state 144
+
+    (37) i -> ILI REG COMA ENT .
+
+    SL              reduce using rule 37 (i -> ILI REG COMA ENT .)
+
+
+
+state 145
+
+    (50) i -> ILW REG COMA ENTN . PA REG PC
+
+    PA              shift and go to state 175
+
+
+
+state 146
+
+    (32) i -> ILW REG COMA ENT . PA REG PC
+
+    PA              shift and go to state 176
+
+
+
+state 147
+
+    (43) i -> IBLE REG COMA REG . COMA ETIQ
+
+    COMA            shift and go to state 177
+
+
+
+state 148
+
+    (46) i -> IBLTZ REG COMA ETIQ .
+
+    SL              reduce using rule 46 (i -> IBLTZ REG COMA ETIQ .)
+
+
+
+state 149
+
+    (24) i -> IADD REG COMA REG . COMA REG
+
+    COMA            shift and go to state 178
+
+
+
+state 150
+
+    (26) i -> ISUB REG COMA REG . COMA REG
+
+    COMA            shift and go to state 179
+
+
+
+state 151
+
+    (29) i -> IOR REG COMA REG . COMA REG
+
+    COMA            shift and go to state 180
+
+
+
+state 152
+
+    (41) i -> IBGT REG COMA REG . COMA ETIQ
+
+    COMA            shift and go to state 181
+
+
+
+state 153
+
+    (40) i -> IBGEZ REG COMA ETIQ .
+
+    SL              reduce using rule 40 (i -> IBGEZ REG COMA ETIQ .)
+
+
+
+state 154
+
+    (55) i -> ISEQ REG COMA REG . COMA REG
+
+    COMA            shift and go to state 182
+
+
+
+state 155
+
+    (30) i -> IORI REG COMA REG . COMA ENT
+    (49) i -> IORI REG COMA REG . COMA ENTN
+
+    COMA            shift and go to state 183
+
+
+
+state 156
+
+    (54) i -> ISLTI REG COMA REG . COMA ENT
+
+    COMA            shift and go to state 184
+
+
+
+state 157
+
+    (57) i -> ISGT REG COMA REG . COMA REG
+
+    COMA            shift and go to state 185
+
+
+
+state 158
+
+    (42) i -> IBGTZ REG COMA ETIQ .
+
+    SL              reduce using rule 42 (i -> IBGTZ REG COMA ETIQ .)
+
+
+
+state 159
+
+    (56) i -> ISGE REG COMA REG . COMA REG
+
+    COMA            shift and go to state 186
+
+
+
+state 160
+
+    (8) bi -> e i sl bi .
+
+    $end            reduce using rule 8 (bi -> e i sl bi .)
+
+
+
+state 161
+
+    (39) i -> IBGE REG COMA REG . COMA ETIQ
+
+    COMA            shift and go to state 187
+
+
+
+state 162
+
+    (53) i -> ISLT REG COMA REG . COMA REG
+
+    COMA            shift and go to state 188
+
+
+
+state 163
+
+    (44) i -> IBLEZ REG COMA ETIQ .
+
+    SL              reduce using rule 44 (i -> IBLEZ REG COMA ETIQ .)
+
+
+
+state 164
+
+    (31) i -> ISLL REG COMA REG . COMA ENT
+
+    COMA            shift and go to state 189
+
+
+
+state 165
+
+    (58) i -> ISLE REG COMA REG . COMA REG
+
+    COMA            shift and go to state 190
+
+
+
+state 166
+
+    (34) i -> IBEQ REG COMA REG . COMA ETIQ
+
+    COMA            shift and go to state 191
+
+
+
+state 167
+
+    (27) i -> IAND REG COMA REG COMA . REG
+
+    REG             shift and go to state 192
+
+
+
+state 168
+
+    (28) i -> IANDI REG COMA REG COMA . ENT
+    (48) i -> IANDI REG COMA REG COMA . ENTN
+
+    ENT             shift and go to state 193
+    ENTN            shift and go to state 194
+
+
+
+state 169
+
+    (25) i -> IADDI REG COMA REG COMA . ENT
+    (47) i -> IADDI REG COMA REG COMA . ENTN
+
+    ENT             shift and go to state 195
+    ENTN            shift and go to state 196
+
+
+
+state 170
+
+    (59) i -> ISNE REG COMA REG COMA . REG
+
+    REG             shift and go to state 197
+
+
+
+state 171
+
+    (45) i -> IBLT REG COMA REG COMA . ETIQ
+
+    ETIQ            shift and go to state 198
+
+
+
+state 172
+
+    (51) i -> ISW REG COMA ENTN PA . REG PC
+
+    REG             shift and go to state 199
+
+
+
+state 173
+
+    (33) i -> ISW REG COMA ENT PA . REG PC
+
+    REG             shift and go to state 200
+
+
+
+state 174
+
+    (35) i -> IBNE REG COMA REG COMA . ETIQ
+
+    ETIQ            shift and go to state 201
+
+
+
+state 175
+
+    (50) i -> ILW REG COMA ENTN PA . REG PC
+
+    REG             shift and go to state 202
+
+
+
+state 176
+
+    (32) i -> ILW REG COMA ENT PA . REG PC
+
+    REG             shift and go to state 203
+
+
+
+state 177
+
+    (43) i -> IBLE REG COMA REG COMA . ETIQ
+
+    ETIQ            shift and go to state 204
+
+
+
+state 178
+
+    (24) i -> IADD REG COMA REG COMA . REG
+
+    REG             shift and go to state 205
+
+
+
+state 179
+
+    (26) i -> ISUB REG COMA REG COMA . REG
+
+    REG             shift and go to state 206
+
+
+
+state 180
+
+    (29) i -> IOR REG COMA REG COMA . REG
+
+    REG             shift and go to state 207
+
+
+
+state 181
+
+    (41) i -> IBGT REG COMA REG COMA . ETIQ
+
+    ETIQ            shift and go to state 208
+
+
+
+state 182
+
+    (55) i -> ISEQ REG COMA REG COMA . REG
+
+    REG             shift and go to state 209
+
+
+
+state 183
+
+    (30) i -> IORI REG COMA REG COMA . ENT
+    (49) i -> IORI REG COMA REG COMA . ENTN
+
+    ENT             shift and go to state 211
+    ENTN            shift and go to state 210
+
+
+
+state 184
+
+    (54) i -> ISLTI REG COMA REG COMA . ENT
+
+    ENT             shift and go to state 212
+
+
+
+state 185
+
+    (57) i -> ISGT REG COMA REG COMA . REG
+
+    REG             shift and go to state 213
+
+
+
+state 186
+
+    (56) i -> ISGE REG COMA REG COMA . REG
+
+    REG             shift and go to state 214
+
+
+
+state 187
+
+    (39) i -> IBGE REG COMA REG COMA . ETIQ
+
+    ETIQ            shift and go to state 215
+
+
+
+state 188
+
+    (53) i -> ISLT REG COMA REG COMA . REG
+
+    REG             shift and go to state 216
+
+
+
+state 189
+
+    (31) i -> ISLL REG COMA REG COMA . ENT
+
+    ENT             shift and go to state 217
+
+
+
+state 190
+
+    (58) i -> ISLE REG COMA REG COMA . REG
+
+    REG             shift and go to state 218
+
+
+
+state 191
+
+    (34) i -> IBEQ REG COMA REG COMA . ETIQ
+
+    ETIQ            shift and go to state 219
+
+
+
+state 192
+
+    (27) i -> IAND REG COMA REG COMA REG .
+
+    SL              reduce using rule 27 (i -> IAND REG COMA REG COMA REG .)
+
+
+
+state 193
+
+    (28) i -> IANDI REG COMA REG COMA ENT .
+
+    SL              reduce using rule 28 (i -> IANDI REG COMA REG COMA ENT .)
+
+
+
+state 194
+
+    (48) i -> IANDI REG COMA REG COMA ENTN .
+
+    SL              reduce using rule 48 (i -> IANDI REG COMA REG COMA ENTN .)
+
+
+
+state 195
+
+    (25) i -> IADDI REG COMA REG COMA ENT .
+
+    SL              reduce using rule 25 (i -> IADDI REG COMA REG COMA ENT .)
+
+
+
+state 196
+
+    (47) i -> IADDI REG COMA REG COMA ENTN .
+
+    SL              reduce using rule 47 (i -> IADDI REG COMA REG COMA ENTN .)
+
+
+
+state 197
+
+    (59) i -> ISNE REG COMA REG COMA REG .
+
+    SL              reduce using rule 59 (i -> ISNE REG COMA REG COMA REG .)
+
+
+
+state 198
+
+    (45) i -> IBLT REG COMA REG COMA ETIQ .
+
+    SL              reduce using rule 45 (i -> IBLT REG COMA REG COMA ETIQ .)
+
+
+
+state 199
+
+    (51) i -> ISW REG COMA ENTN PA REG . PC
+
+    PC              shift and go to state 220
+
+
+
+state 200
+
+    (33) i -> ISW REG COMA ENT PA REG . PC
+
+    PC              shift and go to state 221
+
+
+
+state 201
+
+    (35) i -> IBNE REG COMA REG COMA ETIQ .
+
+    SL              reduce using rule 35 (i -> IBNE REG COMA REG COMA ETIQ .)
+
+
+
+state 202
+
+    (50) i -> ILW REG COMA ENTN PA REG . PC
+
+    PC              shift and go to state 222
+
+
+
+state 203
+
+    (32) i -> ILW REG COMA ENT PA REG . PC
+
+    PC              shift and go to state 223
+
+
+
+state 204
+
+    (43) i -> IBLE REG COMA REG COMA ETIQ .
+
+    SL              reduce using rule 43 (i -> IBLE REG COMA REG COMA ETIQ .)
+
+
+
+state 205
+
+    (24) i -> IADD REG COMA REG COMA REG .
+
+    SL              reduce using rule 24 (i -> IADD REG COMA REG COMA REG .)
+
+
+
+state 206
+
+    (26) i -> ISUB REG COMA REG COMA REG .
+
+    SL              reduce using rule 26 (i -> ISUB REG COMA REG COMA REG .)
+
+
+
+state 207
+
+    (29) i -> IOR REG COMA REG COMA REG .
+
+    SL              reduce using rule 29 (i -> IOR REG COMA REG COMA REG .)
+
+
+
+state 208
+
+    (41) i -> IBGT REG COMA REG COMA ETIQ .
+
+    SL              reduce using rule 41 (i -> IBGT REG COMA REG COMA ETIQ .)
+
+
+
+state 209
+
+    (55) i -> ISEQ REG COMA REG COMA REG .
+
+    SL              reduce using rule 55 (i -> ISEQ REG COMA REG COMA REG .)
+
+
+
+state 210
+
+    (49) i -> IORI REG COMA REG COMA ENTN .
+
+    SL              reduce using rule 49 (i -> IORI REG COMA REG COMA ENTN .)
+
+
+
+state 211
+
+    (30) i -> IORI REG COMA REG COMA ENT .
+
+    SL              reduce using rule 30 (i -> IORI REG COMA REG COMA ENT .)
+
+
+
+state 212
+
+    (54) i -> ISLTI REG COMA REG COMA ENT .
+
+    SL              reduce using rule 54 (i -> ISLTI REG COMA REG COMA ENT .)
+
+
+
+state 213
+
+    (57) i -> ISGT REG COMA REG COMA REG .
+
+    SL              reduce using rule 57 (i -> ISGT REG COMA REG COMA REG .)
+
+
+
+state 214
+
+    (56) i -> ISGE REG COMA REG COMA REG .
+
+    SL              reduce using rule 56 (i -> ISGE REG COMA REG COMA REG .)
+
+
+
+state 215
+
+    (39) i -> IBGE REG COMA REG COMA ETIQ .
+
+    SL              reduce using rule 39 (i -> IBGE REG COMA REG COMA ETIQ .)
+
+
+
+state 216
+
+    (53) i -> ISLT REG COMA REG COMA REG .
+
+    SL              reduce using rule 53 (i -> ISLT REG COMA REG COMA REG .)
+
+
+
+state 217
+
+    (31) i -> ISLL REG COMA REG COMA ENT .
+
+    SL              reduce using rule 31 (i -> ISLL REG COMA REG COMA ENT .)
+
+
+
+state 218
+
+    (58) i -> ISLE REG COMA REG COMA REG .
+
+    SL              reduce using rule 58 (i -> ISLE REG COMA REG COMA REG .)
+
+
+
+state 219
+
+    (34) i -> IBEQ REG COMA REG COMA ETIQ .
+
+    SL              reduce using rule 34 (i -> IBEQ REG COMA REG COMA ETIQ .)
+
+
+
+state 220
+
+    (51) i -> ISW REG COMA ENTN PA REG PC .
+
+    SL              reduce using rule 51 (i -> ISW REG COMA ENTN PA REG PC .)
+
+
+
+state 221
+
+    (33) i -> ISW REG COMA ENT PA REG PC .
+
+    SL              reduce using rule 33 (i -> ISW REG COMA ENT PA REG PC .)
+
+
+
+state 222
+
+    (50) i -> ILW REG COMA ENTN PA REG PC .
+
+    SL              reduce using rule 50 (i -> ILW REG COMA ENTN PA REG PC .)
+
+
+
+state 223
+
+    (32) i -> ILW REG COMA ENT PA REG PC .
+
+    SL              reduce using rule 32 (i -> ILW REG COMA ENT PA REG PC .)
+
+

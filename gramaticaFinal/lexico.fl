@@ -1,0 +1,85 @@
+%{
+#include "y.tab.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+%}
+%%
+\n+                         {return (FL);}
+r0|R0                       {yylval.tipoi=0; return (REGISTRO);}
+r1|R1                       {yylval.tipoi=1; return (REGISTRO);}
+r2|R2                       {yylval.tipoi=2; return (REGISTRO);}
+r3|R3                       {yylval.tipoi=3; return (REGISTRO);}
+r4|R4                       {yylval.tipoi=4; return (REGISTRO);}
+r5|R5                       {yylval.tipoi=5; return (REGISTRO);}
+r6|R6                       {yylval.tipoi=6; return (REGISTRO);}
+r7|R7                       {yylval.tipoi=7; return (REGISTRO);}
+r8|R8                       {yylval.tipoi=8; return (REGISTRO);}
+r9|R9                       {yylval.tipoi=9; return (REGISTRO);}
+r10|R10                     {yylval.tipoi=10; return (REGISTRO);}
+r11|R11                     {yylval.tipoi=11; return (REGISTRO);}
+r12|R12                     {yylval.tipoi=12; return (REGISTRO);}
+r13|R13                     {yylval.tipoi=13; return (REGISTRO);}
+r14|R14                     {yylval.tipoi=14; return (REGISTRO);}
+r15|R15                     {yylval.tipoi=15; return (REGISTRO);}
+r16|R16                     {yylval.tipoi=16; return (REGISTRO);}
+r17|R17                     {yylval.tipoi=17; return (REGISTRO);}
+r18|R18                     {yylval.tipoi=18; return (REGISTRO);}
+r19|R19                     {yylval.tipoi=19; return (REGISTRO);}
+r20|R20                     {yylval.tipoi=20; return (REGISTRO);}
+r21|R21                     {yylval.tipoi=21; return (REGISTRO);}
+r22|R22                     {yylval.tipoi=22; return (REGISTRO);}
+r23|R23                     {yylval.tipoi=23; return (REGISTRO);}
+r24|R24                     {yylval.tipoi=24; return (REGISTRO);}
+r25|R15                     {yylval.tipoi=25; return (REGISTRO);}
+r26|R26                     {yylval.tipoi=26; return (REGISTRO);}
+r27|R27                     {yylval.tipoi=27; return (REGISTRO);}
+r28|R28                     {yylval.tipoi=28; return (REGISTRO);}
+r29|R29                     {yylval.tipoi=29; return (REGISTRO);}
+r30|R30                     {yylval.tipoi=30; return (REGISTRO);}
+r31|R31                     {yylval.tipoi=31; return (REGISTRO);}
+global|GLOBAL               {return (GLOBAL);}
+data|DATA                   {return (DATA);}
+word|WORD                   {return (WORD);}
+equ|EQU                     {return (EQU);}
+bss|BSS                     {return (BSS);}
+space|SPACE                 {return (SPACE);}
+text|TEXT                   {return (TEXT);}
+end|END                     {return (END);}
+and|AND                     {return (AND);}
+orr|ORR                     {return (ORR);}
+EOR|eor                     {return (EOR);}
+ADD|add                     {return (ADD);}
+SUB|sub                     {return (SUB);}
+RSB|rsb                     {return (RSB);}
+MOV|mov                     {return (MOV);}
+CMP|cmp                     {return (CMP);}
+MUL|mul                     {return (MUL);}
+MLA|mla                     {return (MLA);}
+LDR|ldr                     {return (LDR);}
+STR|str                     {return (STR);}
+B|b                         {return (B);}
+BEQ|beq                     {return (BEQ);}
+BNE|bne                     {return (BNE);}
+BHI|bhi                     {return (BHI);}
+BLS|bls                     {return (BLS);}
+BGE|bge                     {return (BGE);}
+BLT|blt                     {return (BLT);}
+BGT|bgt                     {return (BGT);}
+BLE|ble                     {return (BLE);}
+0[Xx][0-9A-Fa-f]{2,8}       {yylval.string=strdup(yytext); return (DIRHEXA);}
+[0-9]+                      {yylval.tipoi=atoi(yytext); return (ENTERO);}
+-[0-9]+                     {yylval.tipoi=atoi(yytext); return (ENTERONEGATIVO);}
+[a-zA-Z][a-zA-Z0-9]*        {yylval.string=strdup(yytext); return (ETIQUETA);}
+:                           {return (DP);}
+\.                          {return (PUNTO);}
+=                           {return (IGUAL);}
+\[                          {return (CA);}
+\]                          {return (CC);}
+,                           {return (COMA);}
+\#                          {return (ALMOADILLA);}
+([ ]|\t)+                   ;
+\@.*                        ;
+.                           {printf("\nError lexico %s\n", yytext);}
+%%
+
