@@ -1,7 +1,7 @@
 .global start
 .data
-X: .word 0x03
-Y: .word 0x0A
+X: .word 1, 2
+Y: .word 3, 0x04
 .bss
 Mayor: .space 4
 .text

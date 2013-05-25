@@ -2,7 +2,7 @@ from lexico import tokens
 import sys
 import string
 lineaFichero = 1
-
+listaword = []
 ESPACIOS = " " * 2  # Valor usado para insertar espacios en blanco en los 
                     # strings la idea es usar el %s y luego ESPACIOS, 
                     # para no tener tantos errores en sangrado
@@ -59,13 +59,22 @@ def p_tipodata(p):
     ''' tipodata : equ rzd
                  | word listaword resto  
     '''
+    global salida
+    global listaword
+    if len(p) == 3: # Cuando es un equ
+        salida += "constantes['%s'] = %s\n" % (p[1], p[2])
 
-    if len(p) == 4: # si es la rama de word
-    
-        p[0] = p[2]
+    else: ## Cuando es un word
+        salida += "etiq['%s'] = direc\n" %p[1]
+        for word in listaword:
+            if word[1] == "DIRHEXA":
+                salida += "memoria[direc] = string.atoi(%s, 16)\n" %word[0]
+            else:
+                salida += "memoria[direc] = string.atoi(%s)\n" %word[0]
+            salida += "direc = direc + 4\n"
+        listaword=[] # vaciamos de nuevo la lista
+        
 
-    else: # si es un equ
-        print 
 
 
 # rzd: ENTERO resto
@@ -73,12 +82,16 @@ def p_tipodata(p):
 #    | DIRHEXA resto
 #    ;
 
-def p_rzd(p):
+def p_rzd_enteros(p):
     ''' rzd : ENTERO resto
             | ENTERONEGATIVO resto
-            | DIRHEXA resto
     '''
-    p[0] = p[1]
+    p[0] = "string.atoi('%s')" % p[1]
+
+def p_rzd_dirhexa(p):
+    '''rzd : DIRHEXA resto
+    '''
+    p[0] = "string.atoi('%s', 16)" % p[1]
 
 # equ: PUNTO EQU ETIQUETA COMA
 #    ;
@@ -88,14 +101,14 @@ def p_equ(p):
     '''
     p[0] = p[3] # nos quedamos con la ETIQUETA
 
+
 # word: ETIQUETA DP PUNTO WORD
 #     ;
 
 def p_word(p):
     ''' word : ETIQUETA DP PUNTO WORD
     '''
-    global salida
-    salida += "etiq['%s'] = direc\n" %(p[1])
+    p[0] = p[1] # Nos quedamos con la etiqueta
 
 # listaword: DIRHEXA COMA listaword
 #          | DIRHEXA
@@ -109,21 +122,19 @@ def p_listaword_dirhexa(p):
     ''' listaword : DIRHEXA COMA listaword
                   | DIRHEXA
     '''
-    global salida
-    salida += "memoria[direc] = string.atoi('%s', 16)\n" %p[1]
-    salida += "direc = direc + 4\n"
+    listaword.insert(0, [p[1], "DIRHEXA"])
 
-def p_listaword_entero(p):
+
+
+def p_listaword_enteros(p):
     ''' listaword : ENTERO COMA listaword
                   | ENTERO 
-    '''
-    p[0] = string.atoi(p[1])
-
-def p_listaword_enteronegativo(p):
-    ''' listaword : ENTERONEGATIVO COMA listaword
+                  | ENTERONEGATIVO COMA listaword
                   | ENTERONEGATIVO
     '''
-    p[0] = string.atoi(p[1])
+    
+    listaword.insert(0, [p[1], "ENTEROS"])
+
 
 # sig3: PUNTO BSS resto listazonabss sig4
 #     | sig4
