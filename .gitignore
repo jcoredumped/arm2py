@@ -1,1 +1,4 @@
 Lledo/*
+.DS_Store #evitamos los .DS_STORE
+*.swp
+*.pyc
