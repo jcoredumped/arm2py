@@ -2,7 +2,7 @@ from lexico import tokens
 import sys
 import string
 lineaFichero = 1
-listaword = []
+listaword = []              # Una lista para solventar el problema del word
 ESPACIOS = " " * 2  # Valor usado para insertar espacios en blanco en los 
                     # strings la idea es usar el %s y luego ESPACIOS, 
                     # para no tener tantos errores en sangrado
@@ -153,6 +153,10 @@ def p_listazonabss(p):
     ''' listazonabss : ETIQUETA DP PUNTO SPACE enterohexa resto listazonabss
                      | ETIQUETA DP PUNTO SPACE enterohexa resto
     '''
+    global salida
+    salida += "etiq['%s'] = direc" %p[1]
+    salida += "\nfor i in range(%d):\n\n%smemoria[direc] = direc + 4\n"\
+           % (p[5], ESPACIOS)
 
 # enterohexa: ENTERO
 #           | DIRHEXA
@@ -161,12 +165,12 @@ def p_listazonabss(p):
 def p_enterohexa_entero(p):
     ''' enterohexa : ENTERO
     '''
-    p[0] = string.atoi(p[1], 16)
+    p[0] = string.atoi(p[1])
 
 def p_enterohexa_dirhexa(p):
     ''' enterohexa : DIRHEXA 
     '''
-    p[0] = string.atoi(p[1])
+    p[0] = string.atoi(p[1], 16)
 
 # sig4: PUNTO TEXT resto inst resto
 #     ;

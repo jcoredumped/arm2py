@@ -1,7 +1,6 @@
 .global start
 .data
-X: .word 1, 2
-Y: .word 3, 0x04
+.equ X, 10
 .bss
 Mayor: .space 4
 .text
