@@ -2,6 +2,11 @@ from lexico import tokens
 import sys
 import string
 lineaFichero = 1
+salida = ""
+
+ESPACIOS = " " * 2  # Valor usado para insertar espacios en blanco en los 
+                    # strings la idea es usar el %s y luego ESPACIOS, 
+                    # para no tener tantos errores en sangrado
 
 # Arbol sintactico
 
@@ -475,6 +480,29 @@ def ficheroACadena(ficheroARM):
 
 
 
+def traduccion():
+    global salida   # Declaramos la variable salida como global
+    salida += "import string\nfrom instARM import *\n" # librerias
+    
+    salida += "\n" * 3 
+    # inicializacion de los diccionarios
+    salida += "# inicializacion de los diccionarios"
+    salida += "\netiq = {}\nprograma = {}\nmemoria = {}\nregistros = {}\n"
+    
+    # todos los registros se ponen a 0
+    salida +="# todos los registros se ponen a 0\n"
+    salida += "\nfor i in range(32):\n%sregistros[i]=0\n" %(ESPACIOS)
+
+    # inicializamos el pc
+    salida +="# inicializamos el pc\n"
+    salida += "pc = 1\n"
+    
+    salida += "direc = string.atoi('0x00000000', 16)\n"
+
+    return salida
+
+
+
 import ply.yacc as yacc
 
 parser = yacc.yacc(debug=1)
@@ -487,6 +515,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 2:
         programa = ficheroACadena(sys.argv[1])
         parser.parse(programa)
+        print traduccion()
     else:
         print "Falta pasar por argumento el fichero"
         print "Usage: %s fichero" % sys.argv[0]

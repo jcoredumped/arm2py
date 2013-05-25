@@ -2,9 +2,9 @@
 	#Programa ejemplo
 
 	.data 0X00A0000F
-oro:	.word 15, 24
+X:	.word 15, 24
 	.text
-	la S100, oro
+	la S0, X
 	lw s1, 0(s0)
 	lw s1, 4(s0)
 	add s3, s1, s2
