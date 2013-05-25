@@ -2,7 +2,6 @@ from lexico import tokens
 import sys
 import string
 lineaFichero = 1
-salida = ""
 
 ESPACIOS = " " * 2  # Valor usado para insertar espacios en blanco en los 
                     # strings la idea es usar el %s y luego ESPACIOS, 
@@ -62,10 +61,8 @@ def p_tipodata(p):
     '''
 
     if len(p) == 4: # si es la rama de word
-        
-        # Hay que hacer algo como direc
-        
-        print p[2]
+    
+        p[0] = p[2]
 
     else: # si es un equ
         print 
@@ -97,6 +94,8 @@ def p_equ(p):
 def p_word(p):
     ''' word : ETIQUETA DP PUNTO WORD
     '''
+    global salida
+    salida += "etiq['%s'] = direc\n" %(p[1])
 
 # listaword: DIRHEXA COMA listaword
 #          | DIRHEXA
@@ -110,7 +109,9 @@ def p_listaword_dirhexa(p):
     ''' listaword : DIRHEXA COMA listaword
                   | DIRHEXA
     '''
-    p[0] = string.atoi(p[1], 16)
+    global salida
+    salida += "memoria[direc] = string.atoi('%s', 16)\n" %p[1]
+    salida += "direc = direc + 4\n"
 
 def p_listaword_entero(p):
     ''' listaword : ENTERO COMA listaword
@@ -515,9 +516,12 @@ if __name__ == "__main__":
 
 
     if len(sys.argv) == 2:
+        global salida
+        salida = ""
+        salida += traduccion()
         programa = ficheroACadena(sys.argv[1])
         parser.parse(programa)
-        print traduccion()
+        print salida
     else:
         print "Falta pasar por argumento el fichero"
         print "Usage: %s fichero" % sys.argv[0]
