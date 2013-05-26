@@ -73,9 +73,9 @@ def p_tipodata(p):
         salida += "etiq['%s'] = direc\n" %p[1]
         for word in listaword:
             if word[1] == "DIRHEXA":
-                salida += "memoria[direc] = string.atoi(%s, 16)\n" %word[0]
+                salida += "memoria[direc] = string.atoi('%s', 16)\n" %word[0]
             else:
-                salida += "memoria[direc] = string.atoi(%s)\n" %word[0]
+                salida += "memoria[direc] = string.atoi('%s')\n" %word[0]
             salida += "direc = direc + 4\n"
         listaword=[] # vaciamos de nuevo la lista
         
