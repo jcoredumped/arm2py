@@ -305,20 +305,18 @@ def p_instruccion_and(p):
     ''' instruccion : AND REGISTRO COMA REGISTRO COMA REGISTRO
                     | AND REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERO
                     | AND REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    '''
-    global numInstruccion
-    numInstruccion += 1
-
-
-def p_instruccion_and_dirhex(p):
-    ''' instruccion : AND REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
+                    | AND REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
     '''
     global numInstruccion
     global salida
-    
-    salida += "programa[%d] = and(pc, registros, %d, %d, %d)\n"\
-            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-            string.atoi(p[7], 16))
+    if len(p) == 8:
+        salida += "programa[%d] = and(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                p[7])
+    else:
+        salida += "programa[%d] = and(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                obtenerIndice(p[6])
     numInstruccion += 1
 
 
@@ -340,49 +338,143 @@ def p_instruccion_orr(p):
                     | ORR REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
                     | ORR REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERO
                     | ORR REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | ORR REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    if len(p) == 8:
+        salida += "programa[%d] = orr(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                p[7])
+    else:
+        salida += "programa[%d] = orr(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                obtenerIndice(p[6])
     numInstruccion += 1
+
+def p_instruccion_orr_constante(p):
+    ''' instruccion : ORR REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = orr(pc, registros, %d, %d, %s, constantes)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
+            p[7])
+    numInstruccion += 1
+
 
 def p_instruccion_eor(p):
     ''' instruccion : EOR REGISTRO COMA REGISTRO COMA REGISTRO
                     | EOR REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
                     | EOR REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERO
                     | EOR REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | EOR REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    if len(p) == 8:
+        salida += "programa[%d] = eor(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                p[7])
+    else:
+        salida += "programa[%d] = eor(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                obtenerIndice(p[6])
     numInstruccion += 1
+
+def p_instruccion_eor_constante(p):
+    ''' instruccion : EOR REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = eor(pc, registros, %d, %d, %s, constantes)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
+            p[7])
+    numInstruccion += 1
+
 
 def p_instruccion_add(p):
     ''' instruccion : ADD REGISTRO COMA REGISTRO COMA REGISTRO
                     | ADD REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
                     | ADD REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERO
                     | ADD REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | ADD REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    if len(p) == 8:
+        salida += "programa[%d] = add(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                p[7])
+    else:
+        salida += "programa[%d] = add(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                obtenerIndice(p[6])
     numInstruccion += 1
+
+def p_instruccion_add_constante(p):
+    '''instruccion : ADD REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = add(pc, registros, %d, %d, %s, constantes)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
+            p[7])
+    numInstruccion += 1
+
 
 def p_instruccion_sub(p):
     ''' instruccion : SUB REGISTRO COMA REGISTRO COMA REGISTRO
                     | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
                     | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERO
                     | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    if len(p) == 8:
+        salida += "programa[%d] = sub(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                p[7])
+    else:
+        salida += "programa[%d] = sub(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                obtenerIndice(p[6])
     numInstruccion += 1
+
+def p_instruccion_sub_constante(p):
+    ''' instruccion | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = sub(pc, registros, %d, %d, %s, constantes)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
+            p[7])
+    numInstruccion += 1
+
 
 def p_instruccion_rsb(p):
     ''' instruccion : RSB REGISTRO COMA REGISTRO COMA REGISTRO
                     | RSB REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
                     | RSB REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERO
                     | RSB REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | RSB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    if len(p) == 8:
+        salida += "programa[%d] = rsb(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                p[7])
+    else:
+        salida += "programa[%d] = rsb(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                obtenerIndice(p[6])
+    numInstruccion += 1
+
+def p_instruccion_rsb_constante(p):
+    ''' instruccion : RSB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = rsb(pc, registros, %d, %d, %s, constantes)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
+            p[7])
     numInstruccion += 1
 
 def p_instruccion_mov(p):
@@ -390,9 +482,27 @@ def p_instruccion_mov(p):
                     | MOV REGISTRO COMA ALMOADILLA DIRHEXA
                     | MOV REGISTRO COMA ALMOADILLA ENTERO
                     | MOV REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | MOV REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    if len(p) == 8:
+        salida += "programa[%d] = mov(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                p[7])
+    else:
+        salida += "programa[%d] = mov(pc, registros, %d, %d, %d)\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+                obtenerIndice(p[6])
+    numInstruccion += 1
+
+def p_instruccion_mov_constante(p):
+    ''' instruccion : MOV REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = mov(pc, registros, %d, %d, %s, constantes)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
+            p[7])
     numInstruccion += 1
 
 def p_instruccion_cmp(p):
