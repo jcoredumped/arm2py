@@ -303,13 +303,37 @@ def p_etiqueta(p):
 
 def p_instruccion_and(p):
     ''' instruccion : AND REGISTRO COMA REGISTRO COMA REGISTRO
-                    | AND REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
                     | AND REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERO
                     | AND REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | AND REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
-    '''
+                    '''
     global numInstruccion
     numInstruccion += 1
+
+
+def p_instruccion_and_dirhex(p):
+    ''' instruccion : AND REGISTRO COMA REGISTRO COMA ALMOADILLA DIRHEXA
+    '''
+    global numInstruccion
+    global salida
+    
+    salida += "programa[%d] = and(pc, registros, %d, %d, %d)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
+            string.atoi(p[7], 16))
+    numInstruccion += 1
+
+
+def p_instruccion_and_constante(p):
+    ''' instruccion : AND REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = and(pc, registros, %d, %d, %s, constantes)\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
+            p[7])
+    numInstruccion += 1
+
+
+
 
 def p_instruccion_orr(p):
     ''' instruccion : ORR REGISTRO COMA REGISTRO COMA REGISTRO
@@ -542,6 +566,74 @@ def p_error(p):
 
 #### Fin del yacc
 
+# Funciones auxiliares
+
+def obtenerIndice(reg):
+    reg = string.upper(reg)   # Ponemos a mayuscula para poder comparar
+    if reg== 'R0':
+        return 0
+    elif reg == 'R1':
+        return 1
+    elif reg == 'R2':
+        return 2
+    elif reg == 'R3':
+        return 3
+    elif reg == 'R4':
+        return 4
+    elif reg == 'R5':
+        return 5
+    elif reg == 'R6':
+        return 6
+    elif reg == 'R7':
+        return 7
+    elif reg == 'R8':
+        return 8
+    elif reg == 'R9':
+        return 9
+    elif reg == 'R10':
+        return 10
+    elif reg == 'R11':
+        return 11
+    elif reg == 'R12':
+        return 12
+    elif reg == 'R13':
+        return 13
+    elif reg == 'R14':
+        return 14
+    elif reg == 'R15':
+        return 15
+    elif reg == 'R16':
+        return 16
+    elif reg == 'R17':
+        return 17
+    elif reg == 'R18':
+        return 18
+    elif reg == 'R19':
+        return 19
+    elif reg == 'R20':
+        return 20
+    elif reg == 'R21':
+        return 21
+    elif reg == 'R22':
+        return 22
+    elif reg == 'R23':
+        return 23
+    elif reg == 'R24':
+        return 24
+    elif reg == 'R25':
+        return 25
+    elif reg == 'R26':
+        return 26
+    elif reg == 'R27':
+        return 27
+    elif reg == 'R28':
+        return 28
+    elif reg == 'R29':
+        return 29
+    elif reg == 'R30':
+        return 30
+    elif reg == 'R31':
+        return 31
 
 
 
