@@ -242,6 +242,7 @@ def t_ALMOADILLA(t):
 
 def t_DIRHEXA(t):
     r'0[xX][0-9A-Fa-f]{2,8}'
+    t.value = t.value.upper()
     return t
 
 
