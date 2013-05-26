@@ -310,13 +310,13 @@ def p_instruccion_and(p):
     global numInstruccion
     global salida
     if len(p) == 8:
-        salida += "programa[%d] = and(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'and(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
                 p[7])
     else:
-        salida += "programa[%d] = and(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'and(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                obtenerIndice(p[6])
+                obtenerIndice(p[6]))
     numInstruccion += 1
 
 
@@ -325,7 +325,7 @@ def p_instruccion_and_constante(p):
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = and(pc, registros, %d, %d, %s, constantes)\n"\
+    salida += "programa[%d] = 'and(pc, registros, %d, %d, %s, constantes)'\n"\
             %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
             p[7])
     numInstruccion += 1
@@ -342,13 +342,13 @@ def p_instruccion_orr(p):
     global numInstruccion
     global salida
     if len(p) == 8:
-        salida += "programa[%d] = orr(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'orr(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
                 p[7])
     else:
-        salida += "programa[%d] = orr(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'orr(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                obtenerIndice(p[6])
+                obtenerIndice(p[6]))
     numInstruccion += 1
 
 def p_instruccion_orr_constante(p):
@@ -356,7 +356,7 @@ def p_instruccion_orr_constante(p):
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = orr(pc, registros, %d, %d, %s, constantes)\n"\
+    salida += "programa[%d] = 'orr(pc, registros, %d, %d, %s, constantes)'\n"\
             %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
             p[7])
     numInstruccion += 1
@@ -371,13 +371,13 @@ def p_instruccion_eor(p):
     global numInstruccion
     global salida
     if len(p) == 8:
-        salida += "programa[%d] = eor(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'eor(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
                 p[7])
     else:
-        salida += "programa[%d] = eor(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'eor(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                obtenerIndice(p[6])
+                obtenerIndice(p[6]))
     numInstruccion += 1
 
 def p_instruccion_eor_constante(p):
@@ -385,7 +385,7 @@ def p_instruccion_eor_constante(p):
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = eor(pc, registros, %d, %d, %s, constantes)\n"\
+    salida += "programa[%d] = 'eor(pc, registros, %d, %d, %s, constantes)'\n"\
             %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
             p[7])
     numInstruccion += 1
@@ -400,13 +400,13 @@ def p_instruccion_add(p):
     global numInstruccion
     global salida
     if len(p) == 8:
-        salida += "programa[%d] = add(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'add(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
                 p[7])
     else:
-        salida += "programa[%d] = add(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'add(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                obtenerIndice(p[6])
+                obtenerIndice(p[6]))
     numInstruccion += 1
 
 def p_instruccion_add_constante(p):
@@ -414,7 +414,7 @@ def p_instruccion_add_constante(p):
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = add(pc, registros, %d, %d, %s, constantes)\n"\
+    salida += "programa[%d] = 'add(pc, registros, %d, %d, %s, constantes)'\n"\
             %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
             p[7])
     numInstruccion += 1
@@ -429,21 +429,21 @@ def p_instruccion_sub(p):
     global numInstruccion
     global salida
     if len(p) == 8:
-        salida += "programa[%d] = sub(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'sub(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
                 p[7])
     else:
-        salida += "programa[%d] = sub(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'sub(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                obtenerIndice(p[6])
+                obtenerIndice(p[6]))
     numInstruccion += 1
 
 def p_instruccion_sub_constante(p):
-    ''' instruccion | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
+    ''' instruccion : SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = sub(pc, registros, %d, %d, %s, constantes)\n"\
+    salida += "programa[%d] = 'sub(pc, registros, %d, %d, %s, constantes)'\n"\
             %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
             p[7])
     numInstruccion += 1
@@ -458,13 +458,13 @@ def p_instruccion_rsb(p):
     global numInstruccion
     global salida
     if len(p) == 8:
-        salida += "programa[%d] = rsb(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'rsb(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
                 p[7])
     else:
-        salida += "programa[%d] = rsb(pc, registros, %d, %d, %d)\n"\
+        salida += "programa[%d] = 'rsb(pc, registros, %d, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                obtenerIndice(p[6])
+                obtenerIndice(p[6]))
     numInstruccion += 1
 
 def p_instruccion_rsb_constante(p):
@@ -472,7 +472,7 @@ def p_instruccion_rsb_constante(p):
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = rsb(pc, registros, %d, %d, %s, constantes)\n"\
+    salida += "programa[%d] = 'rsb(pc, registros, %d, %d, %s, constantes)'\n"\
             %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
             p[7])
     numInstruccion += 1
@@ -485,14 +485,12 @@ def p_instruccion_mov(p):
     '''
     global numInstruccion
     global salida
-    if len(p) == 8:
-        salida += "programa[%d] = mov(pc, registros, %d, %d, %d)\n"\
-                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                p[7])
+    if len(p) == 6:
+        salida += "programa[%d] = 'mov(pc, registros, %d, %d)'\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[5]))
     else:
-        salida += "programa[%d] = mov(pc, registros, %d, %d, %d)\n"\
-                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]),\
-                obtenerIndice(p[6])
+        salida += "programa[%d] = 'mov(pc, registros, %d, %d)'\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]))
     numInstruccion += 1
 
 def p_instruccion_mov_constante(p):
@@ -500,9 +498,8 @@ def p_instruccion_mov_constante(p):
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = mov(pc, registros, %d, %d, %s, constantes)\n"\
-            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), \
-            p[7])
+    salida += "programa[%d] = 'mov(pc, registros, %d, %s, constantes)'\n"\
+            %(numInstruccion, obtenerIndice(p[2]), p[5])
     numInstruccion += 1
 
 def p_instruccion_cmp(p):
