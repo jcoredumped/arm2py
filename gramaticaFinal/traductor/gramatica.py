@@ -791,6 +791,13 @@ def traduccion():
     programa = ficheroACadena(sys.argv[1])
     parser.parse(programa)
 
+    ## codigo que se traduce despues de que acabe el arbol de derivaciones
+
+    salida += "\n\n"
+    salida += "#bucle principal de evaluacion\n"
+    salida += "while pc != posfinal:\n%s pc = eval(prgrama[pc])\n\n"\
+            %(ESPACIOS)
+
     return salida
 
 
