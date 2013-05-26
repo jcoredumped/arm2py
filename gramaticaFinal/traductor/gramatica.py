@@ -502,7 +502,7 @@ def p_instruccion_mov_constante(p):
             %(numInstruccion, obtenerIndice(p[2]), p[5])
     numInstruccion += 1
 
-def p_instruccion_cmp(p):
+def p_instruccion_cmp(p): # necesitaremos el diccionario de estados
     ''' instruccion : CMP REGISTRO COMA REGISTRO
                     | CMP REGISTRO COMA ALMOADILLA DIRHEXA
                     | CMP REGISTRO COMA ALMOADILLA ENTERO
@@ -764,6 +764,7 @@ def ficheroACadena(ficheroARM):
 
 def traduccion():
     global salida   # Declaramos la variable salida como global
+    salida = ""
     salida += "import string\nfrom instARM import *\n" # librerias
     
     salida += "\n" * 3 
@@ -783,13 +784,20 @@ def traduccion():
     
     salida += "direc = string.atoi('0x00000000', 16)\n"
 
+
+    import ply.yacc as yacc
+
+    parser = yacc.yacc(debug=1)
+    programa = ficheroACadena(sys.argv[1])
+    parser.parse(programa)
+
     return salida
 
 
 
-import ply.yacc as yacc
+#import ply.yacc as yacc
 
-parser = yacc.yacc(debug=1)
+#parser = yacc.yacc(debug=1)
 
 
 if __name__ == "__main__":
@@ -797,12 +805,12 @@ if __name__ == "__main__":
 
 
     if len(sys.argv) == 2:
-        global salida
-        salida = ""
-        salida += traduccion()
-        programa = ficheroACadena(sys.argv[1])
-        parser.parse(programa)
-        print salida
+       # global salida
+        #salida = ""
+        #salida += traduccion()
+        #programa = ficheroACadena(sys.argv[1])
+        # parser.parse(programa)
+        print traduccion()
     else:
         print "Falta pasar por argumento el fichero"
         print "Usage: %s fichero" % sys.argv[0]
