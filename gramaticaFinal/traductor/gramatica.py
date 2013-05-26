@@ -1,8 +1,13 @@
 from lexico import tokens
 import sys
 import string
+
 lineaFichero = 1
+
+numInstruccion = 1
+
 listaword = []              # Una lista para solventar el problema del word
+
 ESPACIOS = " " * 2  # Valor usado para insertar espacios en blanco en los 
                     # strings la idea es usar el %s y luego ESPACIOS, 
                     # para no tener tantos errores en sangrado
@@ -157,6 +162,7 @@ def p_listazonabss(p):
     salida += "etiq['%s'] = direc" %p[1]
     salida += "\nfor i in range(%d):\n\n%smemoria[direc] = direc + 4\n"\
            % (p[5], ESPACIOS)
+    salida += "\n\n"
 
 # enterohexa: ENTERO
 #           | DIRHEXA
@@ -179,17 +185,28 @@ def p_sig4(p):
     ''' sig4 : PUNTO TEXT resto inst resto
     '''
 
-# inst: ETIQUETA DP instruccion resto inst
+# inst: etiqueta resto inst
+#     | etiqueta instruccion resto inst
 #     | instruccion resto inst
 #     | fin
 #     ;
 
+
 def p_inst(p):
-    ''' inst : ETIQUETA DP resto inst
-             | ETIQUETA DP instruccion resto inst
+    ''' inst : etiqueta resto inst
+             | etiqueta instruccion resto inst
              | instruccion resto inst
              | fin
     '''
+
+def p_etiqueta(p):
+    '''etiqueta : ETIQUETA DP
+    '''
+    global salida
+    global numInstruccion
+
+    salida += "etiq['%s'] = %d\n" \
+    % (p[1], numInstruccion)    # guardamos el numero de instruccion
 
 
 # instruccion: AND REGISTRO COMA REGISTRO COMA REGISTRO
@@ -291,6 +308,8 @@ def p_instruccion_and(p):
                     | AND REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | AND REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_orr(p):
     ''' instruccion : ORR REGISTRO COMA REGISTRO COMA REGISTRO
@@ -299,6 +318,8 @@ def p_instruccion_orr(p):
                     | ORR REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | ORR REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_eor(p):
     ''' instruccion : EOR REGISTRO COMA REGISTRO COMA REGISTRO
@@ -307,6 +328,8 @@ def p_instruccion_eor(p):
                     | EOR REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | EOR REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_add(p):
     ''' instruccion : ADD REGISTRO COMA REGISTRO COMA REGISTRO
@@ -315,6 +338,8 @@ def p_instruccion_add(p):
                     | ADD REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | ADD REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_sub(p):
     ''' instruccion : SUB REGISTRO COMA REGISTRO COMA REGISTRO
@@ -323,6 +348,8 @@ def p_instruccion_sub(p):
                     | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | SUB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_rsb(p):
     ''' instruccion : RSB REGISTRO COMA REGISTRO COMA REGISTRO
@@ -331,6 +358,8 @@ def p_instruccion_rsb(p):
                     | RSB REGISTRO COMA REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | RSB REGISTRO COMA REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_mov(p):
     ''' instruccion : MOV REGISTRO COMA REGISTRO
@@ -339,6 +368,8 @@ def p_instruccion_mov(p):
                     | MOV REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | MOV REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_cmp(p):
     ''' instruccion : CMP REGISTRO COMA REGISTRO
@@ -347,14 +378,20 @@ def p_instruccion_cmp(p):
                     | CMP REGISTRO COMA ALMOADILLA ENTERONEGATIVO
                     | CMP REGISTRO COMA ALMOADILLA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_mul(p):
     ''' instruccion : MUL REGISTRO COMA REGISTRO COMA REGISTRO
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_mla(p):
     ''' instruccion : MLA REGISTRO COMA REGISTRO COMA REGISTRO
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_ldr(p):
     ''' instruccion : LDR REGISTRO COMA CA REGISTRO COMA REGISTRO CC
@@ -365,6 +402,8 @@ def p_instruccion_ldr(p):
                     | LDR REGISTRO COMA IGUAL ETIQUETA
                     | LDR REGISTRO COMA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 
 def p_instruccion_str(p):
@@ -375,6 +414,8 @@ def p_instruccion_str(p):
                     | STR REGISTRO COMA CA REGISTRO CC
                     | STR REGISTRO COMA ETIQUETA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 
 def p_instruccion_b(p):
@@ -383,6 +424,8 @@ def p_instruccion_b(p):
                     | B PUNTO ENTERONEGATIVO
                     | B PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_beq(p):
     ''' instruccion : BEQ ETIQUETA
@@ -390,6 +433,8 @@ def p_instruccion_beq(p):
                     | BEQ PUNTO ENTERONEGATIVO
                     | BEQ PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_bne(p):
     ''' instruccion : BNE ETIQUETA
@@ -397,6 +442,8 @@ def p_instruccion_bne(p):
                     | BNE PUNTO ENTERONEGATIVO
                     | BNE PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_bhi(p):
     ''' instruccion : BHI ETIQUETA
@@ -404,6 +451,8 @@ def p_instruccion_bhi(p):
                     | BHI PUNTO ENTERONEGATIVO
                     | BHI PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_bls(p):
     ''' instruccion : BLS ETIQUETA
@@ -411,6 +460,8 @@ def p_instruccion_bls(p):
                     | BLS PUNTO ENTERONEGATIVO
                     | BLS PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_bge(p):
     ''' instruccion : BGE ETIQUETA
@@ -418,6 +469,8 @@ def p_instruccion_bge(p):
                     | BGE PUNTO ENTERONEGATIVO
                     | BGE PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_blt(p):
     ''' instruccion : BLT ETIQUETA
@@ -425,6 +478,8 @@ def p_instruccion_blt(p):
                     | BLT PUNTO ENTERONEGATIVO
                     | BLT PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_bgt(p):
     ''' instruccion : BGT ETIQUETA
@@ -432,6 +487,8 @@ def p_instruccion_bgt(p):
                     | BGT PUNTO ENTERONEGATIVO
                     | BGT PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 def p_instruccion_ble(p):
     ''' instruccion : BLE ETIQUETA
@@ -439,6 +496,8 @@ def p_instruccion_ble(p):
                     | BLE PUNTO ENTERONEGATIVO
                     | BLE PUNTO DIRHEXA
     '''
+    global numInstruccion
+    numInstruccion += 1
 
 
 # fin: ETIQUETA DP B PUNTO resto PUNTO END
@@ -453,6 +512,14 @@ def p_fin(p):
     ''' fin : ETIQUETA DP B PUNTO resto PUNTO END
             | B PUNTO resto PUNTO END
     '''
+    global salida
+    global numInstruccion
+
+    if len(p) == 8:
+
+        salida += "etiq['%s'] = %d\n" %(p[1], numInstruccion)
+        salida += "posfinal = %d\n" %numInstruccion
+
 
 
 
