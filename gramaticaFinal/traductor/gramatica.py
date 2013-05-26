@@ -795,21 +795,11 @@ def traduccion():
 
 
 
-#import ply.yacc as yacc
-
-#parser = yacc.yacc(debug=1)
-
-
 if __name__ == "__main__":
 
 
 
     if len(sys.argv) == 2:
-       # global salida
-        #salida = ""
-        #salida += traduccion()
-        #programa = ficheroACadena(sys.argv[1])
-        # parser.parse(programa)
         print traduccion()
     else:
         print "Falta pasar por argumento el fichero"
