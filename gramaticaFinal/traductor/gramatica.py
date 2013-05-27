@@ -514,10 +514,10 @@ def p_instruccion_cmp(p): # necesitaremos el diccionario de estados
     global numInstruccion
     global salida
     if len(p) == 6:
-        salida += "programa[%d] = 'icmp(pc, registros, %d, \"%s\")'\n"\
+        salida += "programa[%d] = 'icmp(pc, registros, estados, %d, \"%s\")'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), p[5])
     else:
-        salida += "programa[%d] = 'icmp(pc, registros, %d, %d)'\n"\
+        salida += "programa[%d] = 'icmp(pc, registros, estados, %d, %d)'\n"\
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]))
     numInstruccion += 1
 
@@ -526,7 +526,7 @@ def p_instruccion_cmp_constante(p):
     '''
     global numInstruccion
     global salida
-    salida += "programa[%d] = 'icmp(pc, registros, %d, \"%s\", constantes)'\n"\
+    salida += "programa[%d] = 'icmp(pc, registros, estados, %d, \"%s\", constantes)'\n"\
             %(numInstruccion, obtenerIndice(p[2]), p[5])
     numInstruccion += 1
 
