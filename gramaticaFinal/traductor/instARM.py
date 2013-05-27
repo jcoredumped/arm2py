@@ -259,8 +259,28 @@ def imla(pc, registros, rd, rs, rt, rn):
 
 ### instrucciones de acceso a memoria
 
-def ildr():
-    pass
+#ildr(pc, registros, memoria, etiq, %d, \"%s\", \"=\")
+
+def ildr(pc, registros, memoria, etiq, rd, rb, desp, accion=""):
+    
+    # casos especiales los distinguimos por el valor de etiqueta
+    
+    if accion == "=": # Caso que tenemos que almacenar en rd etiq[desp]
+        registros[rd] = etiq[desp]
+    elif accion == "ETIQUETA": # almacenamos en rd lo que hay en memoria[desp]
+        registros[rd] = memoria[etiq[desp]]
+    else:
+        if type(rb) == type(1) == type(desp): # si son todo registros
+            desp = registros[desp]
+        elif desp[:2] == "0X": # si desp es un valor hexa lo convertimos a entero
+            desp = string.atoi(desp, 16)
+        else: # si es una cadena pero no es hexa puede ser ENTERO ENTERONEGATIVO
+            desp = string.atoi(desp)
+            
+        registros[rd] = memoria[registros[rb] + desp]
+            
+    
+    return pc + 1
 
 def istr():
     pass

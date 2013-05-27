@@ -572,10 +572,10 @@ def p_instruccion_ldr(p):
         salida += "programa[%d] = 'ildr(pc, registros, memoria, etiq, %d, %d, \"0\")'\n" \
                 %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[5]))
     elif len(p) == 6:
-        salida += "programa[%d] = 'ildr(pc, registros, memoria, etiq, %d, \"%s\", \"=\")'\n" \
+        salida += "programa[%d] = 'ildr(pc, registros, memoria, etiq, %d, \"0\", \"%s\", \"=\")'\n" \
                 %(numInstruccion, obtenerIndice(p[2]), p[5])
     else: # último caso
-        salida += "programa[%d] = 'ildr(pc, registros, memoria, etiq, %d, \"%s\")'\n" \
+        salida += "programa[%d] = 'ildr(pc, registros, memoria, etiq, %d, \"0\", \"%s\", \"ETIQUETA\")'\n" \
                 %(numInstruccion, obtenerIndice(p[2]), p[5])
     
     
