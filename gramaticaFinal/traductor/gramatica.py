@@ -510,15 +510,34 @@ def p_instruccion_cmp(p): # necesitaremos el diccionario de estados
                     | CMP REGISTRO COMA ALMOADILLA DIRHEXA
                     | CMP REGISTRO COMA ALMOADILLA ENTERO
                     | CMP REGISTRO COMA ALMOADILLA ENTERONEGATIVO
-                    | CMP REGISTRO COMA ALMOADILLA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    if len(p) == 6:
+        salida += "programa[%d] = 'icmp(pc, registros, %d, \"%s\")'\n"\
+                %(numInstruccion, obtenerIndice(p[2]), p[5])
+    else:
+        salida += "programa[%d] = 'icmp(pc, registros, %d, %d)'\n"\
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]))
     numInstruccion += 1
+
+def p_instruccion_cmp_constante(p):
+    ''' instruccion : CMP REGISTRO COMA ALMOADILLA ETIQUETA
+    '''
+    global numInstruccion
+    global salida
+    salida += "programa[%d] = 'icmp(pc, registros, %d, \"%s\", constantes)'\n"\
+            %(numInstruccion, obtenerIndice(p[2]), p[5])
+    numInstruccion += 1
+
 
 def p_instruccion_mul(p):
     ''' instruccion : MUL REGISTRO COMA REGISTRO COMA REGISTRO
     '''
     global numInstruccion
+    global salida
+    salida += "programa[%d] = 'imul(pc, registros, %d, %d, %d)'\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), obtenerIndice(p[6]))
     numInstruccion += 1
 
 def p_instruccion_mla(p):
