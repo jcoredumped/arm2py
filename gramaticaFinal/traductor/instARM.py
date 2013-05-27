@@ -42,66 +42,66 @@ def initEstados():
 # LE Menor o igual que (con signo)    Z=1 | N != V
 
 def isEQ(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de 
     igual'''
     if estados['Z'] == 1:
-        return true
+        return True
     else:
-        return false
+        return False
     
 def isNE(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de 
     distinto'''
     if estados['Z'] == 0:
-        return true
+        return True
     else:
-        return false
+        return False
 
 def isHI(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de 
     mayor que (sin signo)'''
     if estados['C'] == 1 and estados['Z'] == 0:
-        return true
+        return True
     else:
-        return false 
+        return False 
 def isLS(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de
     menor o igual que'''
     if estados['C'] == 0 or estados['Z'] == 1:
-        return true
+        return True
     else:
-        return false
+        return False
 def isGE(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de 
     mayor o igual que (con signo)'''
     if estados['N'] == estados['V']:
-        return true
+        return True
     else:
-        return false
+        return False
     
 def isLT(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de 
     menor que con signo'''
     if estados['N'] != estados['V']:
-        return true
+        return True
     else:
-        return false
+        return False
     
 def isGT(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de
     mayor que con signo'''
     if estados['Z'] == 0 and estados['N'] == estados['V']:
-        return true
+        return True
     else:
-        return false
+        return False
     
 def isLE(estados):
-    '''función que devuelve true o false en funcion de los bits de estado para el caso de
+    '''función que devuelve True o False en funcion de los bits de estado para el caso de
     menor o igual que (con signo)'''
     if estados['Z'] == 1 or estados['N'] != estados['V']:
-        return true
+        return True
     else:
-        return false
+        return False
     
 
 
@@ -322,56 +322,56 @@ def ib(pc, etiq, valor, opcion=""):
     
 
 def ibeq(pc, etiq, estados, valor, opcion=""):
-    if isEQ(estados) == true:
+    if isEQ(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
     return salto
 
 def ibne(pc, etiq, estados, valor, opcion=""):
-    if isNE(estados) == true:
+    if isNE(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
     return salto
 
 def ibhi(pc, etiq, estados, valor, opcion=""):
-    if isHI(estados) == true:
+    if isHI(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
     return salto
 
 def ibls(pc, etiq, estados, valor, opcion=""):
-    if isLS(estados) == true:
+    if isLS(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
     return salto
 
 def ibge(pc, etiq, estados, valor, opcion=""):
-    if isGE(estados) == true:
+    if isGE(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
     return salto
 
 def iblt(pc, etiq, estados, valor, opcion=""):
-    if isLT(estados) == true:
+    if isLT(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
     return salto
 
 def ibgt(pc, etiq, estados, valor, opcion=""):
-    if isGT(estados) == true:
+    if isGT(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
     return salto
 
 def ible(pc, etiq, estados, valor, opcion=""):
-    if isLE(estados) == true:
+    if isLE(estados) == True:
         salto = ib(pc, etiq, valor, opcion)
     else:
         salto = pc + 1
