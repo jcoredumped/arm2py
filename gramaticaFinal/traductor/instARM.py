@@ -36,7 +36,80 @@ def initEstados():
 # GT Mayor que con signo              Z=0 & N==V
 # LE Menor o igual que (con signo)    Z=1 | N != V
 
+def isEQ(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    igual'''
+    if estados['Z'] == 1:
+        return true
+    else:
+        return false
+    
+def isNE(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    distinto'''
+    if estados['Z'] == 0:
+        return true
+    else:
+        return false
+
+def isHI(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    mayor que (sin signo)'''
+    if estados['C'] == 1 and estados['Z'] == 0:
+        return true
+    else:
+        return false 
+def isLS(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de
+    menor o igual que'''
+    if estados['C'] == 0 or estados['Z'] == 1:
+        return true
+    else:
+        return false
+def isGE(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    mayor o igual que (con signo)'''
+    if estados['N'] == estados['V']:
+        return true
+    else:
+        return false
+    
+def isLT(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de 
+    menor que con signo'''
+    if estados['N'] != estados['V']:
+        return true
+    else:
+        return false
+    
+def isGT(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de
+    mayor que con signo'''
+    if estados['Z'] == 0 and estados['N'] == estados['V']:
+        return true
+    else:
+        return false
+    
+def isLE(estados):
+    '''función que devuelve true o false en funcion de los bits de estado para el caso de
+    menor o igual que (con signo)'''
+    if estados['Z'] == 1 or estados['N'] != estados['V']:
+        return true
+    else:
+        return false
+    
+
+
+
+
+
+
+
+
 # Las instrucciones aritmeticologicas tienen un parametro opcional que indica si se trata de una constante o no
+
+
+
 
 ######## instrucciones aritmeticas
 def iand(pc, registros, rd, rs, shift, constantes=0):
