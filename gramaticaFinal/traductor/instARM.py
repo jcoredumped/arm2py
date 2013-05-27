@@ -208,8 +208,42 @@ def imov(pc, registros, rd, shift, constantes=0):
     registros[rd] = operand    # movemos shift a registros[rd]
     return pc + 1
 
-def icmp():
-    pass
+def icmp(pc, registros, estados, rd, shift, constantes=0):
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es una cadena pero no es hexa es que es un ENTERO o ENTERONEGATIVO
+        operand = string.atoi(shift)
+    
+    if registros[rd] == operand: # igual
+        estados['Z'] = 1
+    if registros[rd] != operand: # distinto
+        estados['Z'] = 0
+    if abs(registros[rd]) > abs(operand): # mayor que sin signo
+        estados['C'] = 1
+        estados['Z'] = 0
+    if abs(registros[rd]) <= abs(operand): # menor o igual que sin signo
+        estados['C'] = 0
+        estados['Z'] = 1
+    if registros[rd] >= operand: # mayor o igual que con signo
+        estados['N'] = 0
+        estados['V'] = 0
+    if registros[rd] < operand: # menor que con signo
+        estados['N'] = 1
+        estados['V'] = 0
+    if registros[rd] > operand: # mayor que con signo
+        estados['Z'] = 0
+        estados['N'] = 0
+        estados['V'] = 0
+    if registros[rd] <= operand: # menor o igual que con signo
+        estados['Z'] = 1
+        estados['N'] = 1
+        estados['V'] = 0
+    
+    return pc + 1    
 
 
 ######## instrucciones de multiplicacion
