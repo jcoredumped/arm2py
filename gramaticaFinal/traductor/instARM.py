@@ -248,11 +248,13 @@ def icmp(pc, registros, estados, rd, shift, constantes=0):
 
 ######## instrucciones de multiplicacion
 
-def imul():
-    pass
+def imul(pc, registros, rd, rs, rt):
+    registros[rd] = registros[rs] * registros[rt]
+    return pc + 1
 
 def imla():
     pass
+    
 
 ### instrucciones de acceso a memoria
 
