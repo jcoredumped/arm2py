@@ -18,11 +18,12 @@ def initEstados():
     ## Un diccionario tal que la clave sea lo que representa
 
     estados = {
-                'N' : '',       #Indica ultima op dio resultado negativo N=1 o positivo N=0
-                'Z' : '',      # Indica si el resultado de la op fue zero Z=1 o no Z=0
-                'C' : '',     # Para suma o comparacion C=1 si hubo carry, para las operaciones de desplazamiento toma el valor del bit saliente
+                'N' : '0',       #Indica ultima op dio resultado negativo N=1 o positivo N=0
+                'Z' : '0',      # Indica si el resultado de la op fue zero Z=1 o no Z=0
+                'C' : '0',     # Para suma o comparacion C=1 si hubo carry, para las operaciones de desplazamiento toma el valor del bit saliente
+                'V' : '0'
               }
-    pass
+    return estados
 
 # Condiciones asociadas a las instrucciones de salto... B{sufijo}
 
