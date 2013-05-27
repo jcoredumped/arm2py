@@ -3,14 +3,19 @@
 
 import string
 
-def imprimirResultado(registros):
+def imprimirResultado(registros, memoria):
     # imprimimos el diccionario de registros
+    print "Registros:"
     for i in range(32):
-        print "r%d => %d" %(i, registros[i])
-
-
-
-
+        print "\tr%d => %d" %(i, registros[i])
+    
+    print "\n\nMemoria:"
+    direcciones = memoria.keys()
+    direcciones.sort() # las ordenamos
+    for elemento in direcciones:
+        print "\t%s -> %d" %(hex(elemento), memoria[elemento])
+    
+    
 def initEstados():
 
     ### Idea de diccionario de estados

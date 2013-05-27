@@ -933,7 +933,7 @@ def traduccion():
     salida += "while pc != posfinal:\n%s pc = eval(programa[pc])\n\n"\
             %(ESPACIOS)
 
-    salida += "imprimirResultado(registros, memoria, etiq, estados)\n"
+    salida += "imprimirResultado(registros, memoria)\n"
 
     return salida
 
