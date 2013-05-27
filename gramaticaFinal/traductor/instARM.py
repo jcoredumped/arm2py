@@ -13,7 +13,7 @@ def imprimirResultado(registros, memoria):
     direcciones = memoria.keys()
     direcciones.sort() # las ordenamos
     for elemento in direcciones:
-        print "\t%s -> %d" %(hex(elemento), memoria[elemento])
+        print "\t0x%08x -> %d" % (elemento, memoria[elemento])
     
     
 def initEstados():
