@@ -1,5 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-
+import string
 
 
 
@@ -16,9 +18,8 @@ def initEstados():
                 'N' : '',       #Indica ultima op dio resultado negativo N=1 o positivo N=0
                 'Z' : '',      # Indica si el resultado de la op fue zero Z=1 o no Z=0
                 'C' : '',     # Para suma o comparacion C=1 si hubo carry, para las operaciones de desplazamiento toma el valor del bit saliente
-                'V' : '',     # V=1 indica que hubo overflow
               }
-
+    pass
 
 # Condiciones asociadas a las instrucciones de salto... B{sufijo}
 
@@ -34,7 +35,7 @@ def initEstados():
 # Las instrucciones aritmeticologicas tienen un parametro opcional que indica si se trata de una constante o no
 
 ######## instrucciones aritmeticas
-def and (pc, registros, rd, rs, shift, constantes=0):
+def iand(pc, registros, rd, rs, shift, constantes=0):
 
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
@@ -48,7 +49,7 @@ def and (pc, registros, rd, rs, shift, constantes=0):
     registros[rd] = registros[rs] & operand #AND
     return pc + 1
 
-def orr (pc, registros, rd, rs, shift, constantes=0):
+def iorr (pc, registros, rd, rs, shift, constantes=0):
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
     elif type(shift) == type(1): # si es un entero es que es un registro
@@ -63,7 +64,7 @@ def orr (pc, registros, rd, rs, shift, constantes=0):
     return pc + 1
 
 
-def eor (pc, registros, rd, rs, shift, constantesi=0):
+def ieor (pc, registros, rd, rs, shift, constantesi=0):
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
     elif type(shift) == type(1): # si es un entero es que es un registro
@@ -79,7 +80,7 @@ def eor (pc, registros, rd, rs, shift, constantesi=0):
 
 
 
-def add (pc, registros, rd, rs, shift, constantes=0):
+def iadd (pc, registros, rd, rs, shift, constantes=0):
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
     elif type(shift) == type(1): # si es un entero es que es un registro
@@ -91,7 +92,7 @@ def add (pc, registros, rd, rs, shift, constantes=0):
     registros[rd] = registros[rs] + operand
     return pc + 1
 
-def sub(pc, registros, rd, rs, shift, constantes=0):
+def isub(pc, registros, rd, rs, shift, constantes=0):
     
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
@@ -105,7 +106,7 @@ def sub(pc, registros, rd, rs, shift, constantes=0):
     registros[rd] = registros[rs] - operand
     return pc + 1
 
-def rsb(pc, registros, rd, rs, shift, constantes=0):
+def irsb(pc, registros, rd, rs, shift, constantes=0):
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
     elif type(shift) == type(1): # si es un entero es que es un registro
@@ -118,7 +119,7 @@ def rsb(pc, registros, rd, rs, shift, constantes=0):
     registros[rd] = operand - registros[rs]
     return pc + 1
 
-def mov(pc, registros, rd, shift, constantes=0):
+def imov(pc, registros, rd, shift, constantes=0):
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
     elif type(shift) == type(1): # si es un entero es que es un registro
@@ -130,54 +131,54 @@ def mov(pc, registros, rd, shift, constantes=0):
     registros[rd] = operand    # movemos shift a registros[rd]
     return pc + 1
 
-def cmp():
+def icmp():
     pass
 
 
 ######## instrucciones de multiplicacion
 
-def mul():
+def imul():
     pass
 
-def mla():
+def imla():
     pass
 
 ### instrucciones de acceso a memoria
 
-def ldr():
+def ildr():
     pass
 
-def str():
+def istr():
     pass
 
 
 ####### instrucciones de salto
 
-def b():
+def ib():
     pass
 
-def beq():
+def ibeq():
     pass
 
-def bne():
+def ibne():
     pass
 
-def bhi():
+def ibhi():
     pass
 
-def bls():
+def ibls():
     pass
 
-def bge():
+def ibge():
     pass
 
-def blt():
+def iblt():
     pass
 
-def bgt():
+def ibgt():
     pass
 
-def ble():
+def ible():
     pass
 
 
