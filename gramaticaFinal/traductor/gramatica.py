@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from lexico import tokens
+
 import sys
 import string
 
