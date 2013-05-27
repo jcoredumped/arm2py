@@ -544,6 +544,10 @@ def p_instruccion_mla(p):
     ''' instruccion : MLA REGISTRO COMA REGISTRO COMA REGISTRO COMA REGISTRO
     '''
     global numInstruccion
+    global salida
+    salida += "programa[%d] = 'imla(pc, registros, %d, %d, %d, %d)'\n"\
+            %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[4]), obtenerIndice(p[6]),\
+              obtenerIndice(p[8]))
     numInstruccion += 1
 
 def p_instruccion_ldr(p):
