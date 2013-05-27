@@ -259,7 +259,7 @@ def imla(pc, registros, rd, rs, rt, rn):
 
 ### instrucciones de acceso a memoria
 
-#ildr(pc, registros, memoria, etiq, %d, \"%s\", \"=\")
+
 
 def ildr(pc, registros, memoria, etiq, rd, rb, desp, accion=""):
     
@@ -302,8 +302,19 @@ def istr(pc, registros, memoria, etiq, rf, rb, desp, accion=""):
 
 ####### instrucciones de salto
 
-def ib():
-    pass
+#ib(pc, etiq, \"%s\", \"ETIQUETA\")
+
+def ib(pc, etiq, valor, opcion=""):
+    if opcion == "ETIQUETA":
+        salto = etiq[valor]
+    else: # si no es una etiqueta es decir es del tipo b . VALOR
+        if valor[:2] == "0X": # valor es una cadena hexa
+            salto = string.atoi(valor, 16)
+        else: # valor es una cadena pero no es hexa
+            salto = string.atoi(valor)
+        salto = pc + valor
+    return salto
+    
 
 def ibeq():
     pass

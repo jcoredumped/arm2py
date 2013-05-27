@@ -616,6 +616,14 @@ def p_instruccion_b(p):
                     | B PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ib(pc, etiq, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ib(pc, etiq, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_beq(p):
