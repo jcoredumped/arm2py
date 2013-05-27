@@ -11,6 +11,8 @@ numInstruccion = 1
 
 listaword = []              # Una lista para solventar el problema del word
 
+listaspace = []             # necesitamos otra lista para solventar el problema del orden de space
+
 ESPACIOS = " " * 2  # Valor usado para insertar espacios en blanco en los 
                     # strings la idea es usar el %s y luego ESPACIOS, 
                     # para no tener tantos errores en sangrado
@@ -158,14 +160,18 @@ def p_sig3(p):
 #
 
 def p_listazonabss(p):
-    ''' listazonabss : ETIQUETA DP PUNTO SPACE enterohexa resto listazonabss
-                     | ETIQUETA DP PUNTO SPACE enterohexa resto
+    ''' listazonabss : space  resto listazonabss
+                     | space  resto
+    '''
+
+def p_space(p):
+    ''' space : ETIQUETA DP PUNTO SPACE enterohexa
     '''
     global salida
-    salida += "etiq['%s'] = direc" %p[1]
-    salida += "\nfor i in range(%d):\n\n%smemoria[direc] = direc + 4\n"\
-           % (p[5], ESPACIOS)
-    salida += "\n\n"
+    #print p[1], p[5]
+    salida += "\netiq['%s'] = direc\n" %p[1]
+    salida += "\nfor i in range(%d):\n\n%smemoria[direc] = 0\n%sdirec = direc + 4\n\n" \
+            % (p[5], ESPACIOS, ESPACIOS)
 
 # enterohexa: ENTERO
 #           | DIRHEXA
@@ -175,6 +181,7 @@ def p_enterohexa_entero(p):
     ''' enterohexa : ENTERO
     '''
     p[0] = string.atoi(p[1])
+    
 
 def p_enterohexa_dirhexa(p):
     ''' enterohexa : DIRHEXA 
