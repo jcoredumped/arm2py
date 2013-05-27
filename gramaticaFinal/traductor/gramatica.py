@@ -776,7 +776,9 @@ def traduccion():
     salida += "# inicializacion de los diccionarios"
     salida += "\netiq = {}\nprograma = {}\nmemoria = {}\nregistros = {}\n"
 
-    salida += "constantes={}\n"
+    salida += "constantes={}\n\n"
+    salida += "# inicializando el diccionario de estados\n"
+    salida += "estados = initEstados()\n"
     
     # todos los registros se ponen a 0
     salida +="# todos los registros se ponen a 0\n"
