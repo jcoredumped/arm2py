@@ -1,15 +1,23 @@
 
 
-### Idea de diccionario de estados
 
-## Un diccionario tal que la clave sea lo que representa
 
-estados = {
-        'N' : '',       #Indica ultima op dio resultado negativo N=1 o positivo N=0
-        'Z' : '',      # Indica si el resultado de la op fue zero Z=1 o no Z=0
-        'C' : '',     # Para suma o comparacion C=1 si hubo carry, para las operaciones de desplazamiento toma el valor del bit saliente
-        'V' : '',     # V=1 indica que hubo overflow
-        }
+
+
+
+
+def initEstados():
+
+    ### Idea de diccionario de estados
+
+    ## Un diccionario tal que la clave sea lo que representa
+
+    estados = {
+                'N' : '',       #Indica ultima op dio resultado negativo N=1 o positivo N=0
+                'Z' : '',      # Indica si el resultado de la op fue zero Z=1 o no Z=0
+                'C' : '',     # Para suma o comparacion C=1 si hubo carry, para las operaciones de desplazamiento toma el valor del bit saliente
+                'V' : '',     # V=1 indica que hubo overflow
+              }
 
 
 # Condiciones asociadas a las instrucciones de salto... B{sufijo}
@@ -23,49 +31,104 @@ estados = {
 # GT Mayor que con signo              Z=0 & N==V
 # LE Menor o igual que (con signo)    Z=1 | N != V
 
-
-
-## Posibles ideas para solventar el problema de si es registro o inmediato:
-
-## + Implementar funciones a parte
-
-## + Una unica funcion y comprobar si se trata de un registro o inmediato, como en ARM los registros se nombran de una unica forma se puede implementar el diccionario de registros usando de clave la cadena del registro, entonces seria facil de distinguir numero de registro, bastaria con mirar si esta la clave del parametro
-
-## + Mediante otro parametro que se use simplemente para diferenciar. Pero creo que seria una mala programacion.
-
+# Las instrucciones aritmeticologicas tienen un parametro opcional que indica si se trata de una constante o no
 
 ######## instrucciones aritmeticas
-def and (pc, registros, rd, rs, rt):
+def and (pc, registros, rd, rs, shift, constantes=0):
+
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es un entero
+        operand = string.atoi(shift)
+
+    registros[rd] = registros[rs] & operand #AND
+    return pc + 1
+
+def orr (pc, registros, rd, rs, shift, constantes=0):
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es un entero
+        operand = string.atoi(shift)
     
-    operand=registros[rt]
+    registros[rd] = registros[rs] | operand # OR
 
-    ### si rt es registro
-    registros[rd] = registros[rs] & operand
-    return pc + 1
-
-def orr (pc, registros, rd, rs, rt):
-    ## si rt es registro
-    registros[rd] = registros[rs] | operand
     return pc + 1
 
 
-def eor (pc, registros, rd, rs, rt):
-    ### si rt es registro
+def eor (pc, registros, rd, rs, shift, constantesi=0):
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es un entero
+        operand = string.atoi(shift)
+
+    registros[rd] = registros[rs] ^ operand # XOR
+
     return pc + 1
 
 
-def add (pc, registros, rd, rs, rt):
-    registros[rd] = registros[rs] + registros[rt]
+
+def add (pc, registros, rd, rs, shift, constantes=0):
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es un entero
+        operand = string.atoi(shift)
+    registros[rd] = registros[rs] + operand
     return pc + 1
 
-def sub():
-    pass
+def sub(pc, registros, rd, rs, shift, constantes=0):
+    
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es un entero
+        operand = string.atoi(shift)
 
-def rsb():
-    pass
+    registros[rd] = registros[rs] - operand
+    return pc + 1
 
-def mov():
-    pass
+def rsb(pc, registros, rd, rs, shift, constantes=0):
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es un entero
+        operand = string.atoi(shift)
+
+    registros[rd] = operand - registros[rs]
+    return pc + 1
+
+def mov(pc, registros, rd, shift, constantes=0):
+    if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
+        operand = constantes[shift]
+    elif type(shift) == type(1): # si es un entero es que es un registro
+        operand = registros[shift]
+    elif shift[:2] == "0X": # si es un numero en hexa
+        operand = string.atoi(shift, 16)
+    else: # si es un entero
+        operand = string.atoi(shift)
+    registros[rd] = operand    # movemos shift a registros[rd]
+    return pc + 1
 
 def cmp():
     pass
