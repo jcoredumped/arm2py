@@ -765,7 +765,7 @@ def ficheroACadena(ficheroARM):
 def traduccion():
     global salida   # Declaramos la variable salida como global
     salida = ""
-    salida += "# -*- coding: utf-8 -*-"
+    salida += "# -*- coding: utf-8 -*-\n"
     salida += "import string\nfrom instARM import *\n" # librerias
     
     salida += "\n" * 3 
@@ -799,7 +799,7 @@ def traduccion():
     salida += "while pc != posfinal:\n%s pc = eval(programa[pc])\n\n"\
             %(ESPACIOS)
 
-    salida += "print registros"
+    salida += "imprimirResultado(registros)\n"
 
     return salida
 

@@ -3,7 +3,10 @@
 
 import string
 
-
+def imprimirResultado(registros):
+    # imprimimos el diccionario de registros
+    for i in range(32):
+        print "r%d => %d" %(i, registros[i])
 
 
 
