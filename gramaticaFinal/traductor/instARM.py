@@ -316,28 +316,58 @@ def ib(pc, etiq, valor, opcion=""):
     return salto
     
 
-def ibeq():
-    pass
+def ibeq(pc, etiq, estados, valor, opcion=""):
+    if isEQ(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto
 
-def ibne():
-    pass
+def ibne(pc, etiq, estados, valor, opcion=""):
+    if isNE(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto
 
-def ibhi():
-    pass
+def ibhi(pc, etiq, estados, valor, opcion=""):
+    if isHI(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto
 
-def ibls():
-    pass
+def ibls(pc, etiq, estados, valor, opcion=""):
+    if isLS(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto
 
-def ibge():
-    pass
+def ibge(pc, etiq, estados, valor, opcion=""):
+    if isGE(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto
 
-def iblt():
-    pass
+def iblt(pc, etiq, estados, valor, opcion=""):
+    if isLT(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto
 
-def ibgt():
-    pass
+def ibgt(pc, etiq, estados, valor, opcion=""):
+    if isGT(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto
 
-def ible():
-    pass
-
-
+def ible(pc, etiq, estados, valor, opcion=""):
+    if isLE(estados) == true:
+        salto = ib(pc, etiq, valor, opcion)
+    else:
+        salto = pc + 1
+    return salto

@@ -633,6 +633,14 @@ def p_instruccion_beq(p):
                     | BEQ PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ibeq(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ibeq(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_bne(p):
@@ -642,6 +650,14 @@ def p_instruccion_bne(p):
                     | BNE PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ibne(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ibne(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_bhi(p):
@@ -651,6 +667,14 @@ def p_instruccion_bhi(p):
                     | BHI PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ibhi(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ibhi(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_bls(p):
@@ -660,6 +684,14 @@ def p_instruccion_bls(p):
                     | BLS PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ibls(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ibls(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_bge(p):
@@ -669,6 +701,14 @@ def p_instruccion_bge(p):
                     | BGE PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ibge(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ibge(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_blt(p):
@@ -678,6 +718,14 @@ def p_instruccion_blt(p):
                     | BLT PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'iblt(pc, etiq, \"%s\", estados, \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'iblt(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_bgt(p):
@@ -687,6 +735,14 @@ def p_instruccion_bgt(p):
                     | BGT PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ibgt(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ibgt(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 def p_instruccion_ble(p):
@@ -696,6 +752,14 @@ def p_instruccion_ble(p):
                     | BLE PUNTO DIRHEXA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 3:
+        salida += "programa[%d] = 'ible(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+                                %(numInstruccion, p[2])
+    else:
+        salida += "programa[%d] = 'ible(pc, etiq, estados, \"%s\")\n'" \
+                                %(numInstruccion, p[3])
     numInstruccion += 1
 
 
