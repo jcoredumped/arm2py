@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 ### Parte Lexica, TOKENS
+
 
 #reserved es un diccionario para reservar las palabras del lenguaje y darle
 #prioridad palabra : TOKEN
