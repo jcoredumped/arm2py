@@ -252,11 +252,9 @@ def imul(pc, registros, rd, rs, rt):
     registros[rd] = registros[rs] * registros[rt]
     return pc + 1
 
-def imla():
-<<<<<<< HEAD
-    pass
-=======
->>>>>>> branch 'master' of https://github.com/jcoredumped/arm2py.git
+def imla(pc, registros, rd, rs, rt, rn):
+    registros[rd] = registros[rs]*registros[rt] + rn
+    return pc + 1
     
 
 ### instrucciones de acceso a memoria
