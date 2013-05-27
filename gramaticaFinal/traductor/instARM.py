@@ -267,7 +267,7 @@ def ildr(pc, registros, memoria, etiq, rd, rb, desp, accion=""):
     
     if accion == "=": # Caso que tenemos que almacenar en rd etiq[desp]
         registros[rd] = etiq[desp]
-    elif accion == "ETIQUETA": # almacenamos en rd lo que hay en memoria[desp]
+    elif accion == "ETIQUETA": # almacenamos en rd lo que hay en memoria[etiq[desp]]
         registros[rd] = memoria[etiq[desp]]
     else:
         if type(rb) == type(1) == type(desp): # si son todo registros
