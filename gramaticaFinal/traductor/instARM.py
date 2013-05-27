@@ -253,7 +253,10 @@ def imul(pc, registros, rd, rs, rt):
     return pc + 1
 
 def imla():
+<<<<<<< HEAD
     pass
+=======
+>>>>>>> branch 'master' of https://github.com/jcoredumped/arm2py.git
     
 
 ### instrucciones de acceso a memoria
