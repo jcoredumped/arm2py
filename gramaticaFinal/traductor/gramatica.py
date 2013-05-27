@@ -591,6 +591,21 @@ def p_instruccion_str(p):
                     | STR REGISTRO COMA ETIQUETA
     '''
     global numInstruccion
+    global salida
+    
+    if len(p) == 9: # caso que todo son registros
+        salida += "programa[%d] = 'istr(pc, registros, memoria, etiq, %d, %d, %d)'\n" \
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[5]), obtenerIndice(p[7]))
+    elif len(p) == 10: # casos de almoadilla
+        salida += "programa[%d] = 'istr(pc, registros, memoria, etiq, %d, %d, \"%s\")'\n" \
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[5]), p[8])
+    elif len(p) == 7: # caso que hay dos registros
+        salida += "programa[%d] = 'istr(pc, registros, memoria, etiq, %d, %d, \"0\")'\n" \
+                %(numInstruccion, obtenerIndice(p[2]), obtenerIndice(p[5]))
+    else: # caso que cargamos en memoria un elemento que esta en memoria
+        salida += "programa[%d] = 'str(pc, registros, memoria, etiq, %d, \"0\", \"%s\", \"ETIQUETA\")'\n" \
+                %(numInstruccion, obtenerIndice(p[2]), p[5])
+                
     numInstruccion += 1
 
 

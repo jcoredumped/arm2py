@@ -272,7 +272,7 @@ def ildr(pc, registros, memoria, etiq, rd, rb, desp, accion=""):
     else:
         if type(rb) == type(1) == type(desp): # si son todo registros
             desp = registros[desp]
-        elif desp[:2] == "0X": # si desp es un valor hexa lo convertimos a entero
+        elif desp[:2] == "0X": # si desp es una cadena hexa la convertimos a entero
             desp = string.atoi(desp, 16)
         else: # si es una cadena pero no es hexa puede ser ENTERO ENTERONEGATIVO
             desp = string.atoi(desp)
@@ -282,8 +282,22 @@ def ildr(pc, registros, memoria, etiq, rd, rb, desp, accion=""):
     
     return pc + 1
 
-def istr():
-    pass
+def istr(pc, registros, memoria, etiq, rf, rb, desp, accion=""):
+    
+    # caso especial
+    if accion == "ETIQUETA": # almacenamos en memoria[registros[rb]+etiq[desp]] el valor de registros[rf]
+        memoria[memoria[etiq[desp]]] = registros[rf]
+    else:
+        if type(rb) == type(1) == type(desp): # si son registros
+            desp = registros[desp]
+        elif desp[:2] == "0X": # desp es una cadena hexa la convertimos a entero
+            desp = string.atoi(desp, 16)
+        else: # si es una cadena pero no es un hexa puede ser ENTERO ENTERONEGATIVO
+            desp = string.atoi(desp)
+        
+        memoria[registros[rb] + desp] = registros[rf] 
+    
+    return pc + 1
 
 
 ####### instrucciones de salto
