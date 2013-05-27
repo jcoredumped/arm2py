@@ -619,10 +619,10 @@ def p_instruccion_b(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ib(pc, etiq, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ib(pc, etiq, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ib(pc, etiq, \"%s\")\n'" \
+        salida += "programa[%d] = 'ib(pc, etiq, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -636,10 +636,10 @@ def p_instruccion_beq(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ibeq(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ibeq(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ibeq(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'ibeq(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -653,10 +653,10 @@ def p_instruccion_bne(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ibne(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ibne(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ibne(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'ibne(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -670,10 +670,10 @@ def p_instruccion_bhi(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ibhi(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ibhi(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ibhi(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'ibhi(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -687,10 +687,10 @@ def p_instruccion_bls(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ibls(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ibls(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ibls(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'ibls(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -704,10 +704,10 @@ def p_instruccion_bge(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ibge(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ibge(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ibge(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'ibge(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -721,10 +721,10 @@ def p_instruccion_blt(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'iblt(pc, etiq, \"%s\", estados, \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'iblt(pc, etiq, \"%s\", estados, \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'iblt(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'iblt(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -738,10 +738,10 @@ def p_instruccion_bgt(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ibgt(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ibgt(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ibgt(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'ibgt(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
@@ -755,10 +755,10 @@ def p_instruccion_ble(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'ible(pc, etiq, estados, \"%s\", \"ETIQUETA\")\n" \
+        salida += "programa[%d] = 'ible(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
-        salida += "programa[%d] = 'ible(pc, etiq, estados, \"%s\")\n'" \
+        salida += "programa[%d] = 'ible(pc, etiq, estados, \"%s\")'\n" \
                                 %(numInstruccion, p[3])
     numInstruccion += 1
 
