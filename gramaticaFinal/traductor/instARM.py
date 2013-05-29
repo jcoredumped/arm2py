@@ -314,9 +314,9 @@ def ib(pc, etiq, valor, opcion=""):
         salto = etiq[valor]
     else: # si no es una etiqueta es decir es del tipo b . VALOR
         if valor[:2] == "0X": # valor es una cadena hexa
-            salto = string.atoi(valor, 16)
+            valor = string.atoi(valor, 16)
         else: # valor es una cadena pero no es hexa
-            salto = string.atoi(valor)
+            valor = string.atoi(valor)
         salto = pc + valor
     return salto
     
