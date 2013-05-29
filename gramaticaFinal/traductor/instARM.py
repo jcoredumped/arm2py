@@ -223,10 +223,7 @@ def icmp(pc, registros, estados, rd, shift, constantes=0):
     else: # si es una cadena pero no es hexa es que es un ENTERO o ENTERONEGATIVO
         operand = string.atoi(shift)
     
-    if registros[rd] == operand: # igual
-        estados['Z'] = 1
-    if registros[rd] != operand: # distinto
-        estados['Z'] = 0
+    
     if abs(registros[rd]) > abs(operand): # mayor que sin signo
         estados['C'] = 1
         estados['Z'] = 0
@@ -247,6 +244,10 @@ def icmp(pc, registros, estados, rd, shift, constantes=0):
         estados['Z'] = 1
         estados['N'] = 1
         estados['V'] = 0
+    if registros[rd] == operand: # igual
+        estados['Z'] = 1
+    if registros[rd] != operand: # distinto
+        estados['Z'] = 0
     
     return pc + 1    
 
@@ -281,7 +282,7 @@ def ildr(pc, registros, memoria, etiq, rd, rb, desp, accion=""):
             desp = string.atoi(desp, 16)
         else: # si es una cadena pero no es hexa puede ser ENTERO ENTERONEGATIVO
             desp = string.atoi(desp)
-            
+
         registros[rd] = memoria[registros[rb] + desp]
             
     
