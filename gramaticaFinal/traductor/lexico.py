@@ -64,7 +64,7 @@ reserved = {
         'LDR' : 'LDR',
         'ldr' : 'LDR',
         'STR' : 'STR',
-        'str' : 'str',
+        'str' : 'STR',
         }
 
 # Anyadimos los registros r0-31 y R0-r31 al diccionario reserved
