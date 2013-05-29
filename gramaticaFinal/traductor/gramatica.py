@@ -728,7 +728,7 @@ def p_instruccion_blt(p):
     global salida
     
     if len(p) == 3:
-        salida += "programa[%d] = 'iblt(pc, etiq, \"%s\", estados, \"ETIQUETA\")'\n" \
+        salida += "programa[%d] = 'iblt(pc, etiq, estados, \"%s\", \"ETIQUETA\")'\n" \
                                 %(numInstruccion, p[2])
     else:
         salida += "programa[%d] = 'iblt(pc, etiq, estados, \"%s\")'\n" \
