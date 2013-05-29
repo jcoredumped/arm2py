@@ -1,0 +1,31 @@
+.global start
+
+.data
+
+.equ si, 1
+.equ no, 0
+
+.text
+
+
+
+        @ probamos si es mayor o igual que con signo
+
+        mov r0, #3
+        mov r1, #3
+
+        cmp r0, r1
+
+        bge salto
+
+        mov r2, #no
+        b FIN
+
+salto:  mov r2, #si
+
+FIN: B.
+
+
+.end
+
+
