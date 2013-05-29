@@ -1,0 +1,22 @@
+.global start
+
+.data
+
+.equ N, 5
+
+.text
+
+inicalizacion:
+                mov r0, #N     @ en r0 tenemos n que decrementaremos
+
+                mov r1, #1    @ en r1 tendremos fac
+                mov r2, r0     @ en r2 tendremos el resultado
+
+mientras:       cmp r0, #1
+                beq FIN
+                sub r0, r0, #1      @ decrementamos en 1
+                mul r2, r2, r0
+                b mientras
+
+FIN:            B .
+.end

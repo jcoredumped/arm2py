@@ -1,0 +1,32 @@
+.global start
+
+
+.data
+
+vector: .word 0x0a,0x02,0x03
+
+        .equ TAM, 3
+.bss
+
+RES: .space 1
+
+.text
+            mov r3, #0          @ r3 almacenaremos la suma del vector
+            mov r2, #0          @ r2 = 0 sera el contador que compararemos 
+                                @ con TAM
+            ldr r1, =vector     @ r1 apunta a vector
+            mov r6, #0          @ r6 sera el desp que aumentara de 4 en 4
+mientras:   cmp r2, #TAM       @ comparamos el indice con TAM
+            beq FIN             @ irá a FIN cuando r2 == TAM
+            ldr r4, =RES        @ r4 apunta a res
+            ldr r5, [r1,r6]     @ r5 <- memoria[vector+i]
+            add r3, r3, r5      @ r3 <- r3 + vector[i]
+            add r6, r6, #4      @ incrementamos en 4
+            add r2, r2, #1      @ incrementamos r2
+            b mientras          @ saltamos a mientras
+    
+FIN:        str r3, [r4]        @ cargamos r3 en la variable RES
+            B.
+
+.end
+
