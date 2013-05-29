@@ -789,6 +789,8 @@ def p_fin(p):
 
         salida += "etiq['%s'] = %d\n" %(p[1], numInstruccion)
         salida += "posfinal = %d\n" %numInstruccion
+    else: # en caso que no haya etiqueta
+        salida += "posfinal = %d\n" %numInstruccion
 
 
 
