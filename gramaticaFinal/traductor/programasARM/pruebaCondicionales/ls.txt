@@ -11,7 +11,7 @@
 
         @ probamos si es menor o igual que sin signo
 
-        mov r0, #-2
+        mov r0, #1
         mov r1, #-1
 
         cmp r0, r1
