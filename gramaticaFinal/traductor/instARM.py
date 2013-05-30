@@ -232,7 +232,7 @@ def icmp(pc, registros, estados, rd, shift, constantes=0):
         estados['Z'] = 1
     else:
         estados['Z'] = 0
-    if conSigno > 0 or con == 0:
+    if conSigno > 0 or conSigno == 0:
         estados['N'] = 0
         estados['V'] = 0
     else:
