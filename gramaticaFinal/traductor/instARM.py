@@ -146,7 +146,7 @@ def iorr (pc, registros, rd, rs, shift, constantes=0):
     return pc + 1
 
 
-def ieor (pc, registros, rd, rs, shift, constantesi=0):
+def ieor (pc, registros, rd, rs, shift, constantes=0):
     if type(constantes) == type({}): # si constantes es un diccionario es que es una constante
         operand = constantes[shift]
     elif type(shift) == type(1): # si es un entero es que es un registro
